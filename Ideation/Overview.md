@@ -28,9 +28,9 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 - `type String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
 ### Design Guide
-I want to align the design to what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below images as a reference to complete the design:
+I want to align the design to what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below image as a reference to complete the design:
 
-![Screenshot](./Images/Pizza-Planet-img.png) ![Screenshot](./Images/Pizza_Planet_inside.webp) 
+![Screenshot](./Images/Pizza_Planet_inside.webp) 
 
 **Color Pallette**
 
