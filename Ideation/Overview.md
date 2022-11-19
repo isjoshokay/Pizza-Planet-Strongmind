@@ -2,9 +2,10 @@
 This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project. 
 
 ## Summary
-For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
+For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
 
 ### Models and Attributes
+
 **Users** - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
 - `type String` id: The unique ID created by the DBMS to identify a specific user record. 
 - `type String` username: The name that the user chose to create when they signed up. *(jpeoples)* 
@@ -26,6 +27,13 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 - `type Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
 - `type String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
-### Views & Design Guide
+### Design Guide
+I want to align the design to what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below images as a reference to complete the design:
+
+![alt text](Ideation/Images/pizza-planet-opening-in-disneyland.jpg.webp) 
+
+**Color Pallette**
+
+
 
 --Routes goes here--
