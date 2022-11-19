@@ -30,7 +30,7 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 ### Design Guide
 I want to align the design to what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below images as a reference to complete the design:
 
-![alt text](Ideation/Images/pizza-planet-opening-in-disneyland.jpg.webp) 
+![alt text](/Images/pizza-planet-opening-in-disneyland.jpg.webp) 
 
 **Color Pallette**
 
