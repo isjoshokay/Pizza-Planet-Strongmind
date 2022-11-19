@@ -27,7 +27,7 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 - `type Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
 - `type String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
-### Design Guide
+## Design Guide
 I want to align the design with what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below image as a reference to complete the design:
 
 ![Screenshot](./Images/Pizza_Planet_inside.webp) 
