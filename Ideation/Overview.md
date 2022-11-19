@@ -26,6 +26,6 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 - `type Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
 - `type String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
-### Views
+### Views & Design Guide
 
 --Routes goes here--
