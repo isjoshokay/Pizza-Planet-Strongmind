@@ -23,7 +23,7 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 - id: The unique ID created by the DBMS to identify a specific pizza. `type String`
 - name: The name of the pizza creation *(Meatlover's, Veggie, Hawaiian)* `type String`
 - toppings: The toppings chosen for a pizza *(`{sauce: "tomato", cheese: ["mozzarella"], meat: [], veggies: ["olives", "spinach"]}`)* `type Object`
-- price: a base cost plus the cost of each topping on the pizza. This is calculated before the data is added collectively. *(12.99)* `type Number`
+- price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* `type Number`
 
 ### Views
 
