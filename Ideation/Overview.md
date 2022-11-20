@@ -15,6 +15,8 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific user record. 
 - `String` username: The name that the user chose to create when they signed up. *(jpeoples)* 
+- `String` fname: First name of the user *(Joshua)*
+- `String` lname: Last name of the user *(Peoples)*
 - `String` password: A hash encrypted version of the password the user chose to sign up. *(95cj34vo3453v95334)* 
 - `String` permissions: Depending on the type of user it is, they will have different permissions. *(Owner or Chef)* 
 - `String` profileimg: A route to the image of the user. *(/images/username.jpg)* 
@@ -25,6 +27,7 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 - `String` type: The type of topping. *(4 Types: Meat, Veggies, Sauce or Cheese)* 
 - `Number` price: The cost to add the topping to a pizza *(1.50)* 
 - `String` toppingimg: A route to the image of the topping. *(/images/topping.jpg)*  
+- `String` createdby: The id of the user who created the topping in the database. *(users.id)*
 
 > Pizzas - The selection of pizzas that customers will be able to choose from Pizza Planet's :alien::pizza: menu. These can only be created by users with permission: Chef. Duplicate pizzas cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific pizza. 
@@ -34,6 +37,7 @@ For example, one pizza would be: ```{sauce: "tomato", cheese: ["mozzarella"], me
 - `String` description: The text accompanying a pizza to entice customers to purchase our delectable options.
 - `Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
 - `String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
+- `String` createdby: The id of the user who created the topping in the database. *(users.id)*
 
 ## UI Design
 [Back to top](#overview)  
