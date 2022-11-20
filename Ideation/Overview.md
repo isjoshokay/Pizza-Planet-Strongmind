@@ -1,10 +1,12 @@
 # Overview
 This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project. 
 
-[Models and Attributes](###models-and-attributes)
-<div align="center">
-[Models and Attributes](###models-and-attributes)
-</div>
+[Models and Attributes](#models-and-attributes)
+-
+-
+-
+[UI Design](#ui-design)
+
 
 ### Summary
 For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
