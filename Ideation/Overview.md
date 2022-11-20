@@ -1,11 +1,8 @@
 # Overview
-This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project. 
+This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project.  
 
-[Models and Attributes](#models-and-attributes)
--
--
--
-[UI Design](#ui-design)
+[Models and Attributes](#models-and-attributes) | [UI Design](#ui-design)
+
 
 
 ### Summary
