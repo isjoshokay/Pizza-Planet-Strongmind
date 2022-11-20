@@ -28,12 +28,12 @@ For example, one pizza would be: ```{sauce: "tomato", cheese: ["mozzarella"], me
 - `Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
 - `String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
-## Design Guide
+## UI Design
 I want to align the design with what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below image (and other screenshots from the movie(s) as a reference to complete the design:
 
 ![Screenshot](./Images/Pizza_Planet_inside.webp) 
 
-Given the nature of the source material, I'm thinking to use rounded borders with boxed elements, perhaps even figuring out a way to incorporate organic shapes into the mix to make it more fun. 
+Given the nature of the source material, I'm thinking to use rounded borders, perhaps even figuring out a way to incorporate organic shapes into the mix to make it more fun. 
 
 ### Color Palette 
 - Primary:       #1e1f4e 
@@ -43,8 +43,10 @@ Given the nature of the source material, I'm thinking to use rounded borders wit
 
 
 ### Typography 
-> Google Fonts
+> Google Fonts that I am considering using:
 - Audiowide:
 ![Screenshot](./Images/AudiowideFont.png) 
-- Orbitron:
-![Screenshot](./Images/OrbitronFont.png) 
+
+- Exo 2:
+![Screenshot](./Images/Exo2Font.png) 
+
