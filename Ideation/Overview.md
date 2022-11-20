@@ -4,6 +4,8 @@ This describes how I intend to solve the problem presented to me, essentially wh
 ### Summary
 For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
 
+![Screenshot](./Images/Pizza_Planet.webp)
+
 ### Models and Attributes
 
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
@@ -39,14 +41,14 @@ Given the nature of the source material, I'm thinking to use rounded borders, pe
 - Primary:       #1e1f4e 
 - Secondary:     #870d51
 - Accent/Addtnl: #bc1a1f Perhaps for a border gradient look and sprinkled in certain areas.
-- Text:          #13ab08 or #fff
+- Text:          #13ab08 / #fff
 
 
 ### Typography 
 > Google Fonts that I am considering using:
-- Audiowide:  
+- Audiowide for header text:  
 ![Screenshot](./Images/AudiowideFont.png) 
 
-- Exo 2:  
+- Exo 2 for body text:  
 ![Screenshot](./Images/Exo2Font.png) 
 
