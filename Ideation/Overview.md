@@ -2,9 +2,6 @@
 This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project.  
 
 [Models and Attributes](#models-and-attributes) | [UI Design](#ui-design)
-
-
-
 ### Summary
 For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
 
@@ -12,8 +9,8 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 <img src="./Images/Pizza_Planet.webp">
 </p>
 
-### Models and Attributes
-
+### Models and Attributes 
+[Back to top](#overview)
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific user record. 
 - `String` username: The name that the user chose to create when they signed up. *(jpeoples)* 
@@ -37,6 +34,7 @@ For example, one pizza would be: ```{sauce: "tomato", cheese: ["mozzarella"], me
 - `String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
 ## UI Design
+[Back to top](#overview)
 I want to align the design with what inspired it, so I am drawing inspiration from the Toy Story movie. I am using the below image (and other screenshots from the movie(s) as a reference to complete the design:
 
 ![Screenshot](./Images/Pizza_Planet_inside.webp) 
