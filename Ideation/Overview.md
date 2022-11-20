@@ -44,7 +44,7 @@ Given the nature of the source material, I'm thinking to use rounded borders, pe
 
 ### Typography 
 > Google Fonts that I am considering using:
-- Audiowide:
+- Audiowide:  
 ![Screenshot](./Images/AudiowideFont.png) 
 
 - Exo 2:  
