@@ -65,10 +65,9 @@ Given the nature of the source material, I'm using rounded borders, as well as i
 - Clicking 'create user' opens up the 'type' dropdown for selecting 'owner' or 'chef'.
 
 > Dashboard - Once a user is authenticated, this is the page they are led into. Depending on the type of user, this page may look a little different. 
-- Both types of users will see all pizzas and all toppings with all the prices.
-- A user of type 'chef' will have a button that says 'new pizza'
-- A user of type 'owner' will have a button that says 'new topping'
+- A user of type 'chef' will have a button that says 'new pizza', and they can see all of the pizzas that have been made for customers to choose from. 
+- A user of type 'owner' will have a button that says 'new topping', and they can see all of the toppings available for chefs to create new pizzas. 
 
-Clicking either 'new' button will expand a form to add a new pizza or topping. Error messages are injected if one of the error conditions is met.   
+Clicking 'new x' button will expand a form to add a new pizza or topping. Error messages are made visible if one of the error conditions is met. 
 
 [Back to top](#overview) 
