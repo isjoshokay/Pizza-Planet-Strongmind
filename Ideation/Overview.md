@@ -38,9 +38,15 @@ Given the nature of the source material, I'm thinking to use rounded borders wit
 ### Color Palette 
 - Primary:       #1e1f4e 
 - Secondary:     #870d51
-- Accent/Addtnl: #bc1a1f *Perhaps for a border gradient look*
+- Accent/Addtnl: #bc1a1f *Perhaps for a border gradient look and sprinkled in certain areas.*
 - Text:          #13ab08 or #fff
 
 
-Typography - Font - Orbitron or Audiowide (Google Fonts)
+### Typography 
+> Google Fonts - Orbitron / Audiowide
+Orbitron:
+![Screenshot](./Images/OrbitronFont.png) 
+Audiowide:
+![Screenshot](./Images/AudiowideFont.png) 
+
 
