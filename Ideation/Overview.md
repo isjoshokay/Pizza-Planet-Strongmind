@@ -17,7 +17,7 @@ I decided to name the company Pizza Planet :alien::pizza: similar to the one see
 - `String` username: The name that the user chose to create when they signed up. *(jpeoples)* 
 - `String` fname: First name of the user *(Joshua)*
 - `String` lname: Last name of the user *(Peoples)*
-- `String` password: A hash encrypted version of the password the user chose to sign up. *(95cj34vo3453v95334)* 
+- `String` password: The password the user chose to sign up. *(1kn0wwh4ty0ud1dl4stn1ght)* 
 - `String` permissions: Depending on the type of user it is, they will have different permissions. *(Owner or Chef)* 
 - `String` profileimg: A route to the image of the user. *(/images/username.jpg)* 
 
