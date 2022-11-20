@@ -38,7 +38,7 @@ Given the nature of the source material, I'm thinking to use rounded borders, pe
 ### Color Palette 
 - Primary:       #1e1f4e 
 - Secondary:     #870d51
-- Accent/Addtnl: #bc1a1f *Perhaps for a border gradient look and sprinkled in certain areas.*
+- Accent/Addtnl: #bc1a1f Perhaps for a border gradient look and sprinkled in certain areas.
 - Text:          #13ab08 or #fff
 
 
@@ -47,6 +47,6 @@ Given the nature of the source material, I'm thinking to use rounded borders, pe
 - Audiowide:
 ![Screenshot](./Images/AudiowideFont.png) 
 
-- Exo 2:
+- Exo 2:  
 ![Screenshot](./Images/Exo2Font.png) 
 
