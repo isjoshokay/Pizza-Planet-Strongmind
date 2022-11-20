@@ -10,7 +10,7 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 </p>
 
 ### Models and Attributes 
-[Back to top](#overview)
+[Back to top](#overview) 
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific user record. 
 - `String` username: The name that the user chose to create when they signed up. *(jpeoples)* 
