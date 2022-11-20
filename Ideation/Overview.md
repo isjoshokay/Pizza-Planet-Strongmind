@@ -43,10 +43,8 @@ Given the nature of the source material, I'm thinking to use rounded borders wit
 
 
 ### Typography 
-> Google Fonts - Orbitron / Audiowide
-- Orbitron:
-![Screenshot](./Images/OrbitronFont.png) 
+> Google Fonts
 - Audiowide:
 ![Screenshot](./Images/AudiowideFont.png) 
-
-
+- Orbitron:
+![Screenshot](./Images/OrbitronFont.png) 
