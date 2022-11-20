@@ -23,7 +23,7 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 > Pizzas - The selection of pizzas that customers will be able to choose from Pizza Planet's :alien::pizza: menu. These can only be created by users with permission: Chef. Duplicate pizzas cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific pizza. 
 - `String` name: The name of the pizza creation *(Meatlover's, Veggie, Hawaiian)* 
-- `Object` toppings: The toppings chosen for a pizza *(`{sauce: "tomato", cheese: ["mozzarella"], meat: [], veggies: ["olives", "spinach"]}`)* 
+- `Object` toppings: The toppings chosen for a pizza *```For example, one pizza would be: {sauce: "tomato", cheese: ["mozzarella"], meat: [], veggies: ["olives", "spinach"]}```* 
 - `Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
 - `String` pizzaimg: A route to the image of the pizza. *(/images/pizza_name.jpg)*
 
