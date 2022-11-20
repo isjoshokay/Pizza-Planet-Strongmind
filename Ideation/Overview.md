@@ -44,9 +44,9 @@ Given the nature of the source material, I'm thinking to use rounded borders wit
 
 ### Typography 
 > Google Fonts - Orbitron / Audiowide
-Orbitron:
+- Orbitron:
 ![Screenshot](./Images/OrbitronFont.png) 
-Audiowide:
+- Audiowide:
 ![Screenshot](./Images/AudiowideFont.png) 
 
 
