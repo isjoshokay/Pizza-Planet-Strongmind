@@ -1,6 +1,7 @@
 # Overview
 This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project. 
 
+[Models and Attributes](###models-and-attributes)
 <div align="center">
 [Models and Attributes](###models-and-attributes)
 </div>
