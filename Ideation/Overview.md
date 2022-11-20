@@ -33,9 +33,14 @@ I want to align the design with what inspired it, so I am drawing inspiration fr
 
 ![Screenshot](./Images/Pizza_Planet_inside.webp) 
 
-Color Pallette
+Given the nature of the source material, I'm thinking to use rounded borders with boxed elements, perhaps even figuring out a way to incorporate organic shapes into the mix to make it more fun. 
+
+### Color Palette 
+- Primary:       #1e1f4e 
+- Secondary:     #870d51
+- Accent/Addtnl: #bc1a1f *Perhaps for a border gradient look*
+- Text:          #13ab08 or #fff
 
 
+Typography - Font - Orbitron or Audiowide (Google Fonts)
 
-
---Routes goes here--
