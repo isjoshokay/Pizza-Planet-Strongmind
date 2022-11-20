@@ -3,7 +3,7 @@ This describes how I solve the problem presented to me, essentially how I planne
 
 [Models and Attributes](#models-and-attributes) | [UI Design](#ui-design) 
 ### Summary
-For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I was thinking of it as an interface for building a menu, such that customers would use this to order from inside or on the website. I am using the MVC (Model-View-Controller) architecture to build this application. The front end will be built using HTML, CSS, and Javascript. The backend will be built with Express as the middleware and Handlebars as the view engine. MongoDB is used as the database. 
+For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I was thinking of it as an interface for building a menu, such that customers would use this to order from inside or on the website. I am using the MVC (Model-View-Controller) architecture to build this application. The front end will be built using HTML, CSS, and Javascript. The backend will be built primarily with Node.js, with Express as the middleware and Handlebars as the view engine. MongoDB is used as the database. 
 
 <p align="center">
 <img src="./Images/Pizza_Planet.webp">
