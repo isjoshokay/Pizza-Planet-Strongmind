@@ -1,6 +1,10 @@
 # Overview
 This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project. 
 
+<div align="center">
+[Models and Attributes](#models-and-attributes)
+</div>
+
 ### Summary
 For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
 
@@ -8,6 +12,9 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 <img src="./Images/Pizza_Planet.webp">
 </p>
 
+<div align="center">
+[Models and Attributes](#models-and-attributes)
+</div>
 ### Models and Attributes
 
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
@@ -42,7 +49,7 @@ Given the nature of the source material, I'm thinking to use rounded borders, pe
 ### Color Palette 
 - Primary:       #1e1f4e 
 - Secondary:     #870d51
-- Accent/Addtnl: #bc1a1f Perhaps for a border gradient look and sprinkled in certain areas.
+- Accent/Addtnl: #bc1a1f (Perhaps for a border gradient look and sprinkled in certain areas)
 - Text:          #13ab08 / #fff
 
 
@@ -51,6 +58,6 @@ Given the nature of the source material, I'm thinking to use rounded borders, pe
 - Audiowide for header text:  
 ![Screenshot](./Images/AudiowideFont.png) 
 
-- Exo 2 for body text:  
+- Exo 2 (light 300) for body text:  
 ![Screenshot](./Images/Exo2Font.png) 
 
