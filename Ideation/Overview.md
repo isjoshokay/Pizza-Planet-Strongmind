@@ -2,9 +2,9 @@
 This describes how I intend to solve the problem presented to me, essentially where I will plan and journal my thought process for building this project. 
 
 <div align="center">
-
-</div>
 [Models and Attributes](#models-and-attributes)
+</div>
+
 ### Summary
 For the sake of nostalgia/emotional attachment, I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I'm thinking it is an interface for building a menu, such that customers would use this to order from inside or on the website.
 
@@ -12,9 +12,6 @@ For the sake of nostalgia/emotional attachment, I decided to name the company Pi
 <img src="./Images/Pizza_Planet.webp">
 </p>
 
-<div align="center">
-[Models and Attributes](#models-and-attributes)
-</div>
 ### Models and Attributes
 
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
