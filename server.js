@@ -10,3 +10,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.listen(3000)
+
+const testFunct = (a, b) => {
+    return a+b
+}
