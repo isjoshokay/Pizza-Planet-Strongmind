@@ -18,7 +18,7 @@ I decided to name the company Pizza Planet :alien::pizza: similar to the one see
 - `String` fname: First name of the user *(Joshua)*
 - `String` lname: Last name of the user *(Peoples)*
 - `String` password: The password the user chose to sign up. *(1kn0wwh4ty0ud1dl4stn1ght)* 
-- `String` permissions: Depending on the type of user it is, they will have different permissions. *(Owner or Chef)* 
+- `String` permissions: Depending on the type of user it is, they will have different permissions. *(owner or chef)* 
 - `String` profileimg: A route to the image of the user. *(/images/username.jpg)* 
 
 > Toppings - The toppings that Pizza Planet :alien::pizza: has to offer for the pizzas it sells. These can only be created by users with permission: Owner. Duplicate toppings cannot exist. 
@@ -64,14 +64,25 @@ Given the nature of the source material, I'm using rounded borders, as well as i
 ![Screenshot](./Images/Exo2Font.png) 
 
 ### Views  
-> Login - The first page a user will see when trying to get into this system. 
+> Login - The first page a user will see when trying to get into this system. If a user is not authenticated, they will be redirected here.
 - There is a form with Username and Password Inputs, a 'type' dropdown, and 'create account' and 'submit' buttons.
 - Clicking 'create user' opens up the 'type' dropdown for selecting 'owner' or 'chef'.
+- Incorrect login credentials redirect you to the **Error** view. 
 
-> Dashboard - Once a user is authenticated, this is the page they are led into. Depending on the type of user, this page may look a little different. 
+> Dashboard - Once a user is authenticated, this is the page they are led into. Depending on the type of user, this page will look a little different. 
 - A user of type 'chef' will have a button that says 'new pizza', and they can see all of the pizzas that have been made for customers to choose from. 
 - A user of type 'owner' will have a button that says 'new topping', and they can see all of the toppings available for chefs to create new pizzas. 
+- Every record that is listed will have buttons for creating, updating, and deleting them. The create and update buttons lead to the **Create** page.  
+- If the user is not authenticated, they are redirected to the **Login** page.
 
-Clicking 'new x' button will expand a form to add a new pizza or topping. Error messages are made visible if one of the error conditions is met. 
+> Create - When a user clicks on the 'create' or 'update' buttons on the dashboard, this is the page that will be rendered. 
+- The create button simply opens the page
+- The update button will pass in the ID of the topping or pizza to the page and the most current information in the database will be filled in. 
+- Before submitting the form, if there is already a record of the topping or pizza, then the user is redirected to the **Error** page. 
+
+> Error - This is a page that is rendered when any of the above mentioned views encounters an issue. 
+- This page describes the issue and provides a button to redirect the user back to the previous page to correct the issue. 
+
+
 
 [Back to top](#overview) 
