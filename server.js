@@ -11,6 +11,8 @@ app.get('/', (req, res, next) => {
 
 app.listen(3000)
 
-const testFunct = (a, b) => {
-    return a+b
+const sum = (a, b) => {
+    return a + b
 }
+
+module.exports = sum
