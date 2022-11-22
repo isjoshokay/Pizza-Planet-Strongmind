@@ -5,6 +5,7 @@ const app = express()
 app.set('view engine', 'ejs')
 
 
+// First route
 app.get('/', (req, res, next) => {
     res.render('index', {data: "world"})
 })
