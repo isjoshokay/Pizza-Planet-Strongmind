@@ -1,5 +1,50 @@
 body {
     background-color: #1e1f4e; /* Primary color */
-    
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
 }
 
+.button {
+    background-color: #870d51;
+    border: 1px solid #bc1a1f;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    color: #13ab08;
+}
+
+#primary{
+    border: 1px solid white;
+    background-color: #1e1f4e;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+
+}
+#secondary{
+    border: 1px solid white;
+    background-color: #870d51;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+
+}
+#accent{
+    border: 1px solid white;
+    background-color: #bc1a1f;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+
+}
+#words{
+    border: 1px solid white;
+    background-color: #13ab08;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+
+}
