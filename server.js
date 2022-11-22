@@ -7,10 +7,15 @@ app.set('view engine', 'ejs')
 
 app.use(express.static("public"))
 
-// First route
+// Routes
 app.get('/', (req, res, next) => {
-    res.render('index', {data: "world"})
+    res.render('index')
     console.log('server works')
+})
+
+app.get('/login', (req, res, next) => {
+    res.render('login')
+    console.log('you are on the login page')
 })
 
 const PORT = false || 3000

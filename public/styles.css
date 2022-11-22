@@ -13,7 +13,7 @@ body {
     text-align: center;
     margin: 10px;
     cursor: pointer;
-    color: #13ab08;
+    color: #a8e7a4;
 }
 
 #primary{
@@ -42,9 +42,10 @@ body {
 }
 #words{
     border: 1px solid white;
-    background-color: #13ab08;
+    background-color: #a8e7a4;
     width: 100px;
     height: 30px;
     text-align: center;
+    color: rgb(77, 77, 77);
 
 }
