@@ -10,12 +10,17 @@ app.use(express.static("public"))
 // Routes
 app.get('/', (req, res, next) => {
     res.render('index')
-    console.log('server works')
+    console.log('hooray the server works')
+})
+
+app.get('/test', (req, res, next) => {
+    res.render('visualtest')
+    console.log('Test Mode')
 })
 
 app.get('/login', (req, res, next) => {
     res.render('login')
-    console.log('you are on the login page')
+    console.log('user is on the login page')
 })
 
 const PORT = false || 3000
