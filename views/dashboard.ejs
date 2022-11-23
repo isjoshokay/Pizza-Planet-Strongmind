@@ -3,5 +3,12 @@
     <%- include('./partials/head.ejs'); %>
     <body>
         <%- include('./partials/header-nav.ejs', {nav_title: title}); %>
+        <div class="item-list-container">
+            <% items.map(e => {%>
+                <div class="item-data">
+                    <%= e.name %>
+                </div>
+            <%}) %>
+        </div>
     </body>
 </html>
