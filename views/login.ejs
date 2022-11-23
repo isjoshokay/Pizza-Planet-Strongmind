@@ -2,6 +2,19 @@
 <html>
     <%- include('./partials/head.ejs'); %>
     <body>
-        <div id="big-logo"><img src="/public/img/Pizza_Planet.jpg" alt="">Testing 123</div>
+        <div id="login-container">
+            <div id="big-logo"><img src="Pizza_Planet.png" alt=""></div>
+            <h2>Arcade & Cuisine</h2>
+            <form action="/login" method="POST">
+                <div>
+                    <input type="text" for="username" name="username" placeholder="username" autocomplete="off">
+                </div>
+                <div>
+                    <input type="password" for="password" placeholder="password">
+                </div>
+                <button class="button">Submit</button>
+            </form>
+        </div> <!--Login container ends-->
+
     </body>
 </html>

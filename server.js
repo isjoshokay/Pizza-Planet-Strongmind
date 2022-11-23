@@ -20,8 +20,12 @@ app.get('/test', (req, res, next) => {
 
 app.get('/login', (req, res, next) => {
     res.render('login') 
-    console.log('user is on the login page')
+    console.log('initial visit')
+})
+
+app.post('/login', (req, res, next) => {
+    console.log(req)
 })
 
 const PORT = false || 3000
-app.listen(PORT)
+app.listen(PORT) 

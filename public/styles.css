@@ -1,7 +1,10 @@
 body {
     background-color: #1e1f4e; /* Primary color */
     color: #fff;
-    font-family: 'Exo 2', sans-serif;
+}
+
+h2 {
+    font-family: 'Audiowide', cursive;
 }
 
 .button {
@@ -9,11 +12,30 @@ body {
     border: 1px solid #bc1a1f;
     border-radius: 8px;
     width: 100px;
+    height: 40px;
     padding: 5px;
     text-align: center;
     margin: 10px;
     cursor: pointer;
     color: #fff;
+    font-family: 'Exo 2', sans-serif;
+}
+#big-logo {
+    height: 300px;
+    overflow: hidden;
+}
+#login-container{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+
+div > input {
+    margin: 5px;
+    height: 2em;
+    width: 200px;
+    font-family: 'Exo 2', sans-serif;
 }
 
 #primary{
