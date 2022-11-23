@@ -5,6 +5,7 @@ const app = express()
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
 
+// Middleware
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -23,16 +24,16 @@ app.get('/login', (req, res, next) => {
     res.render('login') 
 })
 
-app.post('/login', (req, res, next) => {
+app.post('/POSTDATA', (req, res, next) => {
     if (req.body){
-        res.send(req.body)
+        console.log(req.body)
     } else {
         res.send('There was no data')
     }
+    res.redirect('/dashboard')
 })
-
 app.get('/dashboard', (req, res, next) => {
-    console.log(req)
+    res.send('Dashboard does not exist yet')
 })
 
 const PORT = false || 3000
