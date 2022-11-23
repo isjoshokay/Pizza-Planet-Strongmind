@@ -40,7 +40,13 @@ footer {
     text-align: center;
     width: 50%;
     margin: auto;
-    background-color: rgba(142, 142, 245, 0.4);
+}
+
+#login-wrapper {
+    background-color: rgba(98, 98, 165, 0.4);
+    border-radius: 10px;
+    width: 500px;
+    margin: auto;
 }
 
 div > input {
