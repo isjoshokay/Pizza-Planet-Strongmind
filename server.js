@@ -6,7 +6,8 @@ const app = express()
 app.set('view engine', 'ejs')
 
 app.use(express.static("public"))
-
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 // Routes
 app.get('/', (req, res, next) => {
     res.render('index')
@@ -20,7 +21,14 @@ app.get('/test', (req, res, next) => {
 
 app.get('/login', (req, res, next) => {
     res.render('login') 
-    console.log('initial visit')
+})
+
+app.post('/login', (req, res, next) => {
+    if (req.body){
+        res.send(req.body)
+    } else {
+        res.send('There was no data')
+    }
 })
 
 app.get('/dashboard', (req, res, next) => {
