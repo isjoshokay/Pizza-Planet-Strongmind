@@ -19,11 +19,14 @@ footer {
 
 #header-title {
     text-align: center;
-    font-family: 'Exo 2', sans-serif;
+}
+
+#header-title > h2 {
+    margin-top: 8px;
 }
 
 .top-header {
-    height: 75px;
+    height: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100%;
@@ -38,7 +41,7 @@ footer {
 
 .user-data {
     color: #13ab08;
-    padding-top: 15px;
+    padding-top: 5px;
     padding-right: 30px;
     display: flex;
     justify-content: flex-end;
