@@ -9,28 +9,17 @@ app.set('view engine', 'ejs')
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
+// This is temporary, when I add passport this will be checking for authentication before going to login
+app.use('/', require('./controllers/login'))
 // Routes
-app.get('/', (req, res, next) => {
+app.get('/index', (req, res, next) => {
     res.render('index')
     console.log('hooray the server works')
 })
-
 app.get('/test', (req, res, next) => {
     res.render('visualtest')
     console.log('Test Mode')
-})
-
-app.get('/login', (req, res, next) => {
-    res.render('login') 
-})
-
-app.post('/POSTDATA', (req, res, next) => {
-    if (req.body){
-        console.log(req.body)
-    } else {
-        res.send('There was no data')
-    }
-    res.redirect('/dashboard')
 })
 app.get('/dashboard', (req, res, next) => {
     res.send('Dashboard does not exist yet')

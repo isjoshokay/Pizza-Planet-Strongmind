@@ -5,6 +5,15 @@ router.get('/', (req, res, next) => {
     res.render('login')
 })
 
+router.post('/POSTDATA', (req, res, next) => {
+    if (req.body){
+        console.log(req.body)
+    } else {
+        res.send('There was no data')
+    }
+    res.redirect('/dashboard')
+})
+
 
 
 
