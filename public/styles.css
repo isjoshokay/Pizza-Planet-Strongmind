@@ -1,6 +1,7 @@
 body {
     background-color: #1e1f4e; /* Primary color */
     color: #fff;
+    margin: 0;
 }
 
 h2 {
@@ -13,7 +14,34 @@ footer {
     font-family: 'Exo 2', sans-serif;
     font-size: 10px;
     text-align: center;
+}
 
+.nav {
+    height: 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+}
+
+.nav > img {
+    max-height: 100%;
+}
+
+.nav-data {
+    color: #13ab08;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+}
+
+.nav-data {
+    padding-top: 10px;
+}
+
+.user-photo > img {
+    border-radius: 50px;
+    width: 40px;
+    
 }
 
 .button {
