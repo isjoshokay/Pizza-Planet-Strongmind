@@ -1,3 +1,4 @@
+
 body {
     background-color: #1e1f4e; /* Primary color */
     color: #fff;
@@ -16,34 +17,50 @@ footer {
     text-align: center;
 }
 
-.nav {
-    height: 90px;
+#header-title {
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.top-header {
+    height: 75px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100%;
+    border-bottom: 1px solid #fff;
 }
 
-.nav > img {
+.top-header > img {
     max-height: 100%;
+    padding-left: 10px;
+    
 }
 
-.nav-data {
+.user-data {
     color: #13ab08;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100%;
-}
-
-.nav-data {
-    padding-top: 10px;
+    padding-top: 15px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .user-photo > img {
     border-radius: 50px;
     width: 40px;
-    
 }
 
+#auth-logout {
+    padding-left: 5px;
+    align-items: right;
+    font-family: 'Audiowide', cursive;
+    margin-top: 10px;
+    
+}
+#auth-logout > div {
+    align-items: center;
+    display: inline;
+    margin-top: 10px;
+}
 .button {
     background-color: #bc1a1f; /*#bc1a1f*/ 
     border: 1px solid #870d51; /* #870d51*/
