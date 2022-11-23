@@ -5,11 +5,20 @@ body {
 
 h2 {
     font-family: 'Audiowide', cursive;
+    cursor: default;
+}
+
+footer {
+    margin-top: 30px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 10px;
+    text-align: center;
+
 }
 
 .button {
-    background-color: #870d51;
-    border: 1px solid #bc1a1f;
+    background-color: #bc1a1f; /*#bc1a1f*/ 
+    border: 1px solid #870d51; /* #870d51*/
     border-radius: 8px;
     width: 100px;
     height: 40px;
@@ -21,8 +30,11 @@ h2 {
     font-family: 'Exo 2', sans-serif;
 }
 #big-logo {
-    height: 300px;
+    height: 270px;
     overflow: hidden;
+}
+#login-form {
+    margin-top: 50px;
 }
 #login-container{
     text-align: center;
@@ -30,12 +42,14 @@ h2 {
     margin: auto;
 }
 
-
 div > input {
     margin: 5px;
     height: 2em;
     width: 200px;
     font-family: 'Exo 2', sans-serif;
+    border-radius: 8px;
+    padding-left: 8px;
+    margin-top: 10px;
 }
 
 #primary{

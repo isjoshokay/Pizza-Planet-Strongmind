@@ -49,10 +49,10 @@ I wanted to align the design with what inspired it, so I am drawing inspiration 
 Given the nature of the source material, I'm using rounded borders, as well as incorporating organic shapes into the mix to make it more fun. 
 
 ### Color Palette 
-- Primary:       #1e1f4e 
-- Secondary:     #870d51
-- Accent/Addtnl: #bc1a1f (For a border gradient look and sprinkled in certain areas)
-- Text:          #13ab08 / #fff
+- #1e1f4e 
+- #870d51
+- #bc1a1f (For a border gradient look and sprinkled in certain areas)
+- #13ab08 / #fff
 
 
 ### Typography 

@@ -23,7 +23,7 @@ app.get('/login', (req, res, next) => {
     console.log('initial visit')
 })
 
-app.post('/login', (req, res, next) => {
+app.get('/dashboard', (req, res, next) => {
     console.log(req)
 })
 
