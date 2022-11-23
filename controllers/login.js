@@ -11,7 +11,7 @@ router.post('/POSTDATA', (req, res, next) => {
     } else {
         res.send('There was no data')
     }
-    res.redirect('/dashboard')
+    res.render('dashboard')
 })
 
 module.exports = router

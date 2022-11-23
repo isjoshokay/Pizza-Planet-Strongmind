@@ -1,6 +1,7 @@
 // Import modules
 const express = require('express')
 const app = express()
+const cookieParser = require('cookie-parser')
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
@@ -9,7 +10,7 @@ app.set('view engine', 'ejs')
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-
+app.use(cookieParser())
 // Routes
 // This is temporary, when I add passport this will be checking for authentication before going to login
 app.use('/', require('./controllers/login'))
