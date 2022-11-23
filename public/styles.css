@@ -7,13 +7,13 @@ body {
 .button {
     background-color: #870d51;
     border: 1px solid #bc1a1f;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 100px;
     padding: 5px;
     text-align: center;
     margin: 10px;
     cursor: pointer;
-    color: #a8e7a4;
+    color: #fff;
 }
 
 #primary{
@@ -42,10 +42,10 @@ body {
 }
 #words{
     border: 1px solid white;
-    background-color: #a8e7a4;
+    background-color: #13ab08;
     width: 100px;
     height: 30px;
     text-align: center;
-    color: rgb(77, 77, 77);
+    color: #fff;
 
 }

@@ -19,15 +19,9 @@ app.get('/test', (req, res, next) => {
 })
 
 app.get('/login', (req, res, next) => {
-    res.render('login')
+    res.render('login') 
     console.log('user is on the login page')
 })
 
 const PORT = false || 3000
 app.listen(PORT)
-
-const sum = (a, b) => {
-    return a + b
-}
-
-module.exports = sum
