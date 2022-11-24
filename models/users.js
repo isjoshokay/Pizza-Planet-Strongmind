@@ -10,9 +10,19 @@ let resultsModel = mongoose.model('users', {
         type: String,
         required: true
     },
+    lname: {
+        type: String,
+    },
     password: {
         type: String,
         required: true
+    },
+    permissions: {
+        type: String,
+        required: true
+    },
+    profileimg: {
+        type: String,
     }
 })
 

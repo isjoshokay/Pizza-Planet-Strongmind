@@ -7,6 +7,9 @@ router.get('/', (req, res, next) => {
     res.render('login')
 })
 
+router.get('/new', (req, res, next) => {
+    res.render('newuser')
+})
 
 router.post('/POSTDATA', async (req, res, next) => {
     

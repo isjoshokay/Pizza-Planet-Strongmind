@@ -8,18 +8,22 @@
                 <h2>Arcade & Cuisine</h2>
                 <form id="login-form" action="/POSTDATA" method="POST">
                     <div>
-                        <input type="text" name="username" placeholder="username" autocomplete="off" required>
+                        <input type="text" name="fname" placeholder="First Name" autocomplete="off" required>
+                        <input type="text" name="lname" placeholder="Last Name (optional)" autocomplete="off">
                     </div>
                     <div>
+                        <input type="text" name="username" placeholder="username" autocomplete="off" required>
                         <input type="password" name="password" placeholder="password" required>
+                    </div>
+                    <div>
+                        <h3>Admin controls</h3>
+                        <select name="select-type" id="select-type">
+                            <option selected>Chef</option>
+                            <option>Owner</option>
+                        </select>
                     </div>
                     <button class="button" type="submit">Submit</button>
                 </form>
-                <a href="/new" style="text-decoration: none">
-                    <div class="button" id="create-user-button">
-                        Create User
-                    </div>
-                </a>
             </div>
         </div> <!--Login container ends-->
 
