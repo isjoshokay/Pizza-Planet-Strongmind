@@ -2,6 +2,10 @@
 const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
+const mongoose = require('mongoose')
+
+// MongoDB
+mongoose.connect()
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
