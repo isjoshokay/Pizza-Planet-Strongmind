@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Users = require('../models/users')
+const bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
@@ -9,6 +10,22 @@ router.get('/', (req, res, next) => {
 
 router.get('/new', (req, res, next) => {
     res.render('newuser')
+})
+
+router.post('/new', async (req, res, next) => {
+    try {
+        const hashPass = await bcrypt.hash(req.body.password, 10)
+        Users.create({
+            username: req.body.username,
+            fname: req.body.fname,
+            lname: req.body.lname || '',
+            password: hashPass,
+            permissions: req.body.permissions
+        })
+        console.log('User successfully created')
+    } catch {
+        console.log('error')
+    }
 })
 
 router.post('/POSTDATA', async (req, res, next) => {
