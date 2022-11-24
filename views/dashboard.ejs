@@ -3,10 +3,49 @@
     <%- include('./partials/head.ejs'); %>
     <body>
         <%- include('./partials/header-nav.ejs', {nav_title: title}); %>
+        <div style="text-align: center; width: 40%; margin: auto;">
+            <h2 style="color: #13ab08; margin: 20px 40px;" >Welcome, <%= user.fname %> <%= user.lname %></h2>
+        </div>
+        
+        <div class="item-list-container-head">
+            <div class="item-data">
+                <div class="item-content"><div class="new-button">New</div></div>
+                <div class="item-content content-head">Name</div>
+                <div class="item-content content-head">Type</div>
+                <div class="item-content content-head">Price</div>
+                <div class="item-content content-head">Created By</div>
+                <div class="item-content content-head">Actions</div>
+            </div>
+        </div>
         <div class="item-list-container">
-            <% items.map(e => {%>
+            
+            <% data.map(e => {%>
                 <div class="item-data">
-                    <%= e.name %>
+                    <div class="item-content">
+                        <img src=<%=e.img %> alt="">
+                    </div>
+                    <div class="item-content">
+                        <%= e.name %>
+                    </div>
+                    <div class="item-content">
+                        <%= e.type %>
+                    </div>
+                    <div class="item-content">
+                        $<%= e.price %>
+                    </div>
+                    <div class="item-content">
+                        <%= e.createdby %>
+                    </div>
+                    <div class="item-content">
+                        <div class="action-button">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </div>
+                        <div class="action-button">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </div>
+                        
+
+                    </div>
                 </div>
             <%}) %>
         </div>

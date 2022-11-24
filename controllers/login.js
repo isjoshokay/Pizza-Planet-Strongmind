@@ -7,21 +7,43 @@ router.get('/', (req, res, next) => {
 })
 
 
-let items = [
-    {name: 'item1', price: '100'},
-    {name: 'item2', price: '150'}
-]
+
 
 router.post('/POSTDATA', (req, res, next) => {
     if (req.body){
-        
+        // Do the call to mongodb here
+        let toppings = [
+            {id: 'item1', name: 'Chicken', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Sausage', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Pepperoni', type: 'Meat', price: "2.00", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Chicken', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Sausage', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Pepperoni', type: 'Meat', price: "2.00", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Chicken', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Sausage', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Pepperoni', type: 'Meat', price: "2.00", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Chicken', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Sausage', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Pepperoni', type: 'Meat', price: "2.00", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Chicken', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Sausage', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Pepperoni', type: 'Meat', price: "2.00", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Chicken', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Sausage', type: 'Meat', price: "1.50", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+            {id: 'item1', name: 'Pepperoni', type: 'Meat', price: "2.00", img: '/images/pepperoni.png', createdby: 'jpeoples'},
+        ]
+        res.render('dashboard', {
+            title: 'Dashboard', 
+            data: toppings,
+            user: {
+                fname: 'Joshua',
+                lname: 'Peoples'
+            }
+        })
     } else {
-        res.send('There was no data')
+        console.log('There was no data')
     }
-    res.render('dashboard', {
-        title: 'Dashboard', 
-        items
-    })
+    
 })
 
 module.exports = router
