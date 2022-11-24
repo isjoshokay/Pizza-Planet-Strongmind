@@ -17,11 +17,15 @@
                     </div>
                     <div>
                         <h3>Admin controls</h3>
-                        <select name="select-type" id="select-type">
+                        <select name="select-type" id="select-type" onchange="adminControlKey()">
                             <option selected>Chef</option>
                             <option>Owner</option>
                         </select>
+                        <input id="admin-key" style="border-radius: 8px; height: 20px; 
+                        border: none; display: none;" type="text" name="admin-key", 
+                        placeholder="Admin Key" autocomplete="off">
                     </div>
+                    
                     <button class="button" type="submit">Submit</button>
                 </form>
             </div>
