@@ -56,6 +56,7 @@ footer {
     padding-left: 5px;
     align-items: right;
     font-family: 'Audiowide', cursive;
+    font-size: 14px;
     margin-top: 10px;
     
 }
@@ -131,6 +132,7 @@ div > input {
     max-height: 600px;
     background-color: rgba(98, 98, 165, 0.4);
     text-align: center;
+    min-width: 200px;
     
 }
 
@@ -144,6 +146,7 @@ div > input {
     background-color: rgba(98, 98, 165, 0.4);
     text-align: center;
     padding-left: 10px;
+    min-width: 200px;
 }
 
 
