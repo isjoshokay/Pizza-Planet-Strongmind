@@ -3,6 +3,7 @@ const router = express.Router()
 const Users = require('../models/users')
 const bcrypt = require('bcrypt')
 
+
 router.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
     res.render('login')
