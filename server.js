@@ -3,9 +3,16 @@ const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 // MongoDB
-mongoose.connect()
+mongoose.connect(process.env.DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+}, () => {
+    console.log('Connected to MongoDB')
+})
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
