@@ -2,7 +2,7 @@
 <html>
     <%- include('./partials/head.ejs'); %>
     <body>
-        <%- include('./partials/header-nav.ejs', {nav_title: title}); %>
+        <%- include('./partials/header-nav.ejs', {nav_title: title, username: user.username}); %>
         <div style="text-align: center; width: 40%; margin: auto;">
             <h2 style="color: #13ab08; margin: 20px 40px;" >Welcome, <%= user.fname %> <%= user.lname %></h2>
         </div>

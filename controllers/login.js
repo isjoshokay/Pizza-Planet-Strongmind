@@ -3,6 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
+    // if user is authenticated, render dashboard with data. Otherwise, show login. 
     res.render('login')
 })
 
@@ -36,6 +37,7 @@ router.post('/POSTDATA', (req, res, next) => {
             title: 'Dashboard', 
             data: toppings,
             user: {
+                username: 'jpeoples',
                 fname: 'Joshua',
                 lname: 'Peoples'
             }
