@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const bcrypt = require('bcrypt')
+const Users = require('../models/users')
 
 router.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
@@ -8,9 +8,10 @@ router.get('/', (req, res, next) => {
 })
 
 
-
-
-router.post('/POSTDATA', (req, res, next) => {
+router.post('/POSTDATA', async (req, res, next) => {
+    
+    let data = await Users.find({})
+    console.log(data)
     if (req.body){
         // Do the call to mongodb here
         let toppings = [

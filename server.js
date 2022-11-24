@@ -6,13 +6,14 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 // MongoDB
-mongoose.connect(process.env.DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-}, () => {
-    console.log('Connected to MongoDB')
-})
+mongoose.connect(
+    process.env.MONGODB_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true},
+    () => {
+      console.log('Connected to MongoDB')
+    })
+const db = mongoose.connection
+db.on('error', (err) => console.error(err))
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
