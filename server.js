@@ -35,23 +35,32 @@ app.use('/dashboard', require('./controllers/dashboard'))
 
 app.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
-    res.render('login')
+    res.render('login', {success: false})
 })
 app.get('/new', (req, res, next) => {
-    res.render('newuser')
+    res.render('newuser', {success: true})
 })
 app.post('/new', async (req, res, next) => {
     try {
-        const hashPass = await bcrypt.hash(req.body.password, 10)
-        Users.create({
-            username: req.body.username,
-            fname: req.body.fname,
-            lname: req.body.lname || '',
-            password: hashPass,
-            permissions: req.body.permissions
+        let duplicateUser = await Users.findOne({
+            username: req.body.username
         })
-        console.log('User successfully created')
-        res.redirect('/')
+        console.log(duplicateUser)
+        if (duplicateUser){
+            console.log('That username already exists')
+            res.render('newuser', {success: false})
+        } else {
+            console.log('User does not exist. Creating new user.')
+            const hashPass = await bcrypt.hash(req.body.password, 10)
+            Users.create({
+                username: req.body.username,
+                fname: req.body.fname,
+                lname: req.body.lname || '',
+                password: hashPass,
+                permissions: req.body.permissions
+            })
+            res.render('login', {success: true})
+        }
     } catch {
         console.log('error')
     }

@@ -8,6 +8,11 @@
                     <div id="big-logo"><img src="/images/Pizza_Planet.png" alt=""></div>
                 </a>
                 <h2>Arcade & Cuisine</h2>
+                <% if (!success) { %>
+                    <div class="success-message" style="color: red">
+                        User already exists!
+                    </div>
+                <% } %> 
                 <form id="login-form" action="/new" method="POST">
                     <div>
                         <input type="text" name="fname" placeholder="First Name" autocomplete="off" required>
