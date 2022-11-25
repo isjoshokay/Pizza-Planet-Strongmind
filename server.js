@@ -29,11 +29,18 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
 
+// Error Handler Middleware
+const errorHandler = (err, req, res, next) => {
+    if (err){
+        res.send('There was an error. Please try again.')
+    }
+}
+
+
 // Routes
 // This is temporary, when I add passport this will be checking for authentication before going to login
 app.use('/dashboard', require('./controllers/dashboard'))
 app.use('/create', require('./controllers/create'))
-
 app.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
     res.render('login', {success: false})
@@ -86,6 +93,6 @@ app.get('/test', (req, res, next) => {
     console.log('Test styles')
 })
 
-
+app.use(errorHandler)
 const PORT = 3000
 app.listen(PORT) 
