@@ -58,6 +58,7 @@ footer {
     font-family: 'Audiowide', cursive;
     font-size: 14px;
     margin-top: 10px;
+    text-decoration: none;
     
 }
 #auth-logout > div {
