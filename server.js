@@ -37,10 +37,16 @@ app.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
     res.render('login', {success: false})
 })
-app.get('/new', (req, res, next) => {
+app.post('/login-user', async (req, res, next) => {
+    console.log(req.body.username)
+    
+    res.redirect(`dashboard`)
+    
+})
+app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
 })
-app.post('/new', async (req, res, next) => {
+app.post('/new-user', async (req, res, next) => {
     try {
         let duplicateUser = await Users.findOne({
             username: req.body.username
@@ -64,13 +70,6 @@ app.post('/new', async (req, res, next) => {
     } catch {
         console.log('error')
     }
-})
-app.post('/login-user', async (req, res, next) => {
-    
-    console.log(req.body.username)
-    
-    res.redirect(`dashboard`)
-    
 })
 app.get('/index', (req, res, next) => {
     res.render('index')
