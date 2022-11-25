@@ -44,13 +44,11 @@ app.post('/login-user', async (req, res, next) => {
         const passwordMatch = await bcrypt.compare(req.body.password, userExists.password)
         if (passwordMatch){
             isAuthenticated = true
-            res.redirect(`/authenticate/${userExists.id}`)
+            res.redirect(`dashboard`)
         }
     } 
 })
-app.get('/authenticate/:id', (req, res, next) => {
-    console.log('The route works!')
-})
+
 app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
 })
