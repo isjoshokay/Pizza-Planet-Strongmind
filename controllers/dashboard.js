@@ -5,6 +5,7 @@ const Toppings = require('../models/toppings')
 
 router.get('/', async (req, res, next) => {
     // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
+    console.log('Inside dashboard controller')
     let user = await Users.findOne({})
     let data = await Toppings.find({})
     res.render('dashboard', {user: user, title: 'Dashboard', data: data})

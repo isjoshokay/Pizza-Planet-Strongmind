@@ -2,10 +2,13 @@
 const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
+const session = require('express-session')
 const mongoose = require('mongoose')
 const Users = require('./models/users')
+const passport = require('passport')
 const bcrypt = require('bcrypt')
 require('dotenv').config()
+
 
 // Access forms inside of req
 app.use(express.urlencoded({extended: false}))
@@ -20,6 +23,8 @@ mongoose.connect(
 const db = mongoose.connection
 db.on('error', (err) => console.error(err))
 
+
+
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
 
@@ -32,30 +37,40 @@ app.use(cookieParser())
 // Error Handler Middleware
 const errorHandler = (err, req, res, next) => {
     if (err){
-        res.send('There was an error. Please try again.')
+        console.log(err)
+        res.send(err)
+    } else {
+        next()
     }
 }
-
-
+// Session setup
+// Session Store in MongoDB
+const MongoStore = require('connect-mongo')
+const sessionStore = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URL,
+    dbName: 'pizzaplanet'
+})
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore,
+    cookie: {
+        maxAge: 10000
+    }
+}))
+// Passport Authentication
+require('./config/passport')
+app.use(passport.initialize())
+app.use(passport.session())
 // Routes
-// This is temporary, when I add passport this will be checking for authentication before going to login
 app.use('/dashboard', require('./controllers/dashboard'))
 app.use('/create', require('./controllers/create'))
 app.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
     res.render('login', {success: false})
 })
-app.post('/login-user', async (req, res, next) => {
-    // If the user exists, compare passwords. If not, redirect to login 
-    let userExists = await Users.findOne({username: req.body.username})
-    if (userExists) {
-        const passwordMatch = await bcrypt.compare(req.body.password, userExists.password)
-        if (passwordMatch){
-            isAuthenticated = true
-            res.redirect(`dashboard`)
-        }
-    } 
-})
+app.post('/login-user', passport.authenticate('local', {failureRedirect: '/', successRedirect: '/dashboard'}))
 
 app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
@@ -66,7 +81,6 @@ app.post('/new-user', async (req, res, next) => {
             username: req.body.username
         })
         if (duplicateUser){
-            console.log('That username already exists')
             res.render('newuser', {success: false})
         } else {
             console.log('User does not exist. Creating new user.')
@@ -84,7 +98,6 @@ app.post('/new-user', async (req, res, next) => {
         console.log('error')
     }
 })
-
 app.get('/index', (req, res, next) => {
     res.render('index')
 })
@@ -92,7 +105,6 @@ app.get('/test', (req, res, next) => {
     res.render('visualtest')
     console.log('Test styles')
 })
-
 app.use(errorHandler)
 const PORT = 3000
 app.listen(PORT) 
