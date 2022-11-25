@@ -5,15 +5,16 @@
         <div id="login-container">
             <div id="form-wrapper">
                 <a href="/">
-                    <div id="big-logo"><img src="/images/Pizza_Planet.png" alt=""></div>
+                    <div class="back-button"><i class="fa-solid fa-circle-chevron-left"></i></div>
                 </a>
+                <div id="big-logo"><img src="/images/Pizza_Planet.png" alt=""></div>
                 <h2>Arcade & Cuisine</h2>
                 <% if (!success) { %>
                     <div class="success-message" style="color: red">
                         Username already exists!
                     </div>
                 <% } %> 
-                <form id="login-form" action="/new" method="POST">
+                <form id="login-form" action="/new-user" method="POST">
                     <div>
                         <input type="text" name="fname" placeholder="First Name" autocomplete="off" required>
                         <input type="text" name="lname" placeholder="Last Name (optional)" autocomplete="off">
@@ -40,7 +41,4 @@
         </div> <!--Login container ends-->
 
     </body>
-    <footer>
-        Built by Joshua Peoples 
-    </footer>
 </html>

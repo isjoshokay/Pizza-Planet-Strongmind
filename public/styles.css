@@ -82,6 +82,22 @@ footer {
     color: #fff;
     font-family: 'Exo 2', sans-serif;
 }
+.back-button {
+    background-color: #bc1a1f; /*#bc1a1f*/ 
+    border: 1px solid #870d51; /* #870d51*/
+    border-radius: 8px;
+    width: 30px;
+    /* height: 40px; */
+    padding: 5px;
+    margin: 25px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    z-index: 2;
+    position:absolute;
+}
 .button {
     background-color: #bc1a1f; /*#bc1a1f*/ 
     border: 1px solid #870d51; /* #870d51*/
@@ -154,7 +170,11 @@ div > input, select {
     padding-left: 10px;
     min-width: 200px;
 }
-
+.success-message {
+    padding: 5px;
+    background-color: rgba(43, 47, 61, 0.8);
+    color:#13ab08;
+}
 
 .item-data {
     display: grid; 

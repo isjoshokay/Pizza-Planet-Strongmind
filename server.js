@@ -37,15 +37,28 @@ app.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
     res.render('login', {success: false})
 })
-app.get('/new', (req, res, next) => {
+app.post('/login-user', async (req, res, next) => {
+    // If the user exists, compare passwords. If not, redirect to login 
+    let userExists = await Users.findOne({username: req.body.username})
+    if (userExists) {
+        const passwordMatch = await bcrypt.compare(req.body.password, userExists.password)
+        if (passwordMatch){
+            isAuthenticated = true
+            res.redirect(`/authenticate/${userExists.id}`)
+        }
+    } 
+})
+app.get('/authenticate/:id', (req, res, next) => {
+    console.log('The route works!')
+})
+app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
 })
-app.post('/new', async (req, res, next) => {
+app.post('/new-user', async (req, res, next) => {
     try {
         let duplicateUser = await Users.findOne({
             username: req.body.username
         })
-        console.log(duplicateUser)
         if (duplicateUser){
             console.log('That username already exists')
             res.render('newuser', {success: false})
@@ -65,13 +78,7 @@ app.post('/new', async (req, res, next) => {
         console.log('error')
     }
 })
-app.post('/login-user', async (req, res, next) => {
-    
-    console.log(req.body.username)
-    
-    res.redirect(`dashboard`)
-    
-})
+
 app.get('/index', (req, res, next) => {
     res.render('index')
 })
