@@ -32,7 +32,7 @@ I decided to name the company Pizza Planet :alien::pizza: similar to the one see
 > Pizzas - The selection of pizzas that customers will be able to choose from Pizza Planet's :alien::pizza: menu. These can only be created by users with permission: Chef. Duplicate pizzas cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific pizza. 
 - `String` name: The name of the pizza creation *(Meatlover's, Veggie, Hawaiian)* 
-- `Object` toppings: The toppings chosen for a pizza.
+- `Array`  toppings: The toppings chosen for a pizza.
 For example, one pizza would be: ```{sauce: "tomato", cheese: ["mozzarella"], meat: [], veggies: ["olives", "banana peppers"]}```
 - `String` description: The text accompanying a pizza to entice customers to purchase our delectable options.
 - `Number` price: a base cost plus the cost of each topping on the pizza - calculated before the data is added collectively. *(12.99)* 
