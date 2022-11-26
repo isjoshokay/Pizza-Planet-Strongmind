@@ -37,25 +37,30 @@
                         <%= e.createdby %>
                     </div>
                     <div class="item-content">
-                        <form action="/create/update" method="POST" class="action-button">
-                            <input type="hidden" name="id" value=<%= e.id %>>
-                            <button><i class="fa-regular fa-pen-to-square"></i></button>
-                        </form>
+                        
+                        <div onclick="displayModal(this)" style="display: inline">
+                            
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <p style="display: none" class="update-topping-id-values"><%= e.id %></p>
+                            <input type="hidden" value=<%=e.name%>>
+                            <input type="hidden" value=<%=e.type%>>
+                            <input type="hidden" value=<%=e.price%>>
+                        </div>
                         <form action="/create/delete" method="POST"class="action-button">
                             <input type="hidden" name="id" value=<%= e.id %>>
-                            <button><i class="fa-solid fa-trash-can"></i></button>
+                            <button type="submit" style="background: none; border: none; color: rgb(254, 58, 58)"><i class="fa-solid fa-trash-can"></i></button>
                         </form>
                     </div>
                 </div>
             <%}) %>
         </div>
-        <div class="modal-container">
+        <div class="modal-container" style="display: none">
             <div class="modal-content">
-                <div class="back-button">
+                <div class="back-button" onclick="closeModal()">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </div>
                     <h2>Update Topping</h2>
-                    <form action="/create/update" id="update-topping">
+                    <form action="/create/update" method="POST" id="update-topping">
                         <div>
                             <label for="name">Name</label>
                             <input name="name" type="text" id="update-topping-name" required>
@@ -71,7 +76,8 @@
                             <label for="price">Price</label>
                             <input name="price" type="number" min="0" max="4" step=".01" id="update-topping-price" required>
                         </div>
-                        <input type="hidden" name="createdby" id="update-topping-createdby" placeholder=<%= user.username %>>
+                        <input type="hidden" name="createdby" id="update-topping-createdby" value=<%= user.username %>>
+                        <input type="hidden" name="id" id="update-topping-id">
                         <button class="button" type="submit">Submit Changes</button>
                     </form>
             </div>

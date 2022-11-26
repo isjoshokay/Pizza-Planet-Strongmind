@@ -62,15 +62,33 @@ router.post('/submit-topping', async (req, res, next) => {
 
 router.post('/update', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
+    // the topping cannot be a duplicate of an entirely different topping (by id)
     try{
         foundTopping = await Toppings.findById(req.body.id)
         if (!foundTopping) {
-            throw new Error
+            throw new Error('The topping no longer exists')
         } else {
-            res.render('update', {user: req.user, title: 'Update'})
+            let duplicateByName = await Toppings.findOne({
+                name: req.body.name
+            })
+            if (duplicateByName){
+                if (duplicateByName.id != req.body.id) {
+                    console.log('Duplicate found!', duplicateByName)
+                    throw new Error('A topping by that name already exists')
+                }
+            } 
+            await Toppings.findOneAndUpdate(req.body.id, {
+                name: req.body.name,
+                type: req.body.type,
+                price: req.body.price,
+                img: setToppingImage(req.body.type),
+                createdby: req.body.createdby
+            })  
+            res.redirect('back')
+        
         }
     } catch(err) {
-        next(ErrorMessage.badRequest('This topping was not found. Perhaps it was deleted?'))
+        next(ErrorMessage.badRequest(err))
     }
     
 })

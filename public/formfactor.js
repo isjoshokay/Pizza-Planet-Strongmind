@@ -14,3 +14,16 @@ const adminControlKey = () => {
 
     }
 }
+
+const displayModal = (e) => {
+    document.querySelector("#update-topping-name").value = e.children[2].value
+    document.querySelector("#update-topping-type").value = e.children[3].value
+    document.querySelector("#update-topping-price").value = e.children[4].value
+    document.querySelector("#update-topping-id").value = e.children[1].innerHTML
+    document.querySelector(".modal-container").style.display = "inline"
+    
+}
+
+const closeModal = () => {
+    document.querySelector(".modal-container").style.display = "none"
+}
