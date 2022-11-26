@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 // Create the results moodel
-let resultsModel = mongoose.model('toppings', {
+let toppingsModel = mongoose.model('toppings', {
     name: {
         type: String,
         required: true
@@ -23,4 +23,4 @@ let resultsModel = mongoose.model('toppings', {
     },
 })
 
-module.exports = resultsModel
+module.exports = toppingsModel
