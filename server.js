@@ -123,13 +123,7 @@ app.post('/new-user', async (req, res, next) => {
         console.log('error')
     }
 })
-app.get('/index', (req, res, next) => {
-    res.render('index')
-})
-app.get('/test', (req, res, next) => {
-    res.render('visualtest')
-    console.log('Test styles')
-})
+
 app.use(errorHandler)
 const PORT = process.env.PORT || 3000
 app.listen(PORT) 
