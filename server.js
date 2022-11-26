@@ -38,7 +38,7 @@ app.use(cookieParser())
 const errorHandler = (err, req, res, next) => {
     if (err){
         console.log(err)
-        res.send(err)
+        res.render('error')
     } else {
         next()
     }
@@ -68,15 +68,22 @@ app.use('/dashboard', require('./controllers/dashboard'))
 app.use('/create', require('./controllers/create'))
 
 app.get('/', (req, res, next) => {
-    // if user is authenticated, render dashboard with data. Otherwise, show login. 
+    // if user is authenticated, render dashboard with data. Otherwise, show login (this will be consistent among many routes)
     if (req.isAuthenticated()){
         res.redirect('/dashboard')
+    } else {
+        res.render('login', {invalid: false})
     }
-    res.render('login', {invalid: false})
 })
 app.get('/invalid-login', (req, res, next) => {
-    res.render('login', {invalid: true})
+    if (req.isAuthenticated()){
+        res.redirect('/dashboard')
+    } else {
+        res.render('login', {invalid: true})
+    }
 })
+
+// Log in, log out routes
 app.post('/login-user', passport.authenticate('local', {failureRedirect: '/invalid-login', successRedirect: '/dashboard'}))
 app.get('/logout', (req, res, next) => {
     console.log(`User ${req.user.username} is logged out.`)

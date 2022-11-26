@@ -4,9 +4,9 @@
     <body>
         <div id="login-container">
             <div id="form-wrapper">
-                <a href="/">
-                    <div class="back-button"><i class="fa-solid fa-circle-chevron-left"></i></div>
-                </a>
+                <form action="/dashboard" method="GET">
+                    <button class="back-button" type="submit"><i class="fa-solid fa-circle-chevron-left"></i></button>
+                </form>
                 <div id="big-logo"><img src="/images/Pizza_Planet.png" alt=""></div>
                 <h2>Arcade & Cuisine</h2>
                 <% if (!success) { %>
