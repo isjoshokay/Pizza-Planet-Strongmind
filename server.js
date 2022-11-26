@@ -124,5 +124,5 @@ app.get('/test', (req, res, next) => {
     console.log('Test styles')
 })
 app.use(errorHandler)
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 app.listen(PORT) 
