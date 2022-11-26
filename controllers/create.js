@@ -4,9 +4,13 @@ const Users = require('../models/users')
 const Toppings = require('../models/toppings')
 const Pizzas = require('../models/pizzas')
 
+const setImage = (item) => {
+
+}
 
 router.get('/', async (req, res, next) => {
     // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
+    // depending on the type of user, a different page is rendered.
     res.render('create', {user: req.user})
 })
 router.post('/submit-topping', (req, res, next) => {
