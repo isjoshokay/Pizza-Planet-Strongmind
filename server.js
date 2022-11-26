@@ -38,7 +38,7 @@ app.use(cookieParser())
 const errorHandler = (err, req, res, next) => {
     if (err){
         console.log(err)
-        res.render('error')
+        res.render('error', {message: 'Unknown error'})
     } else {
         next()
     }
@@ -74,12 +74,13 @@ app.get('/', (req, res, next) => {
     } else {
         res.render('login', {invalid: false})
     }
+    next()
 })
 app.get('/invalid-login', (req, res, next) => {
     if (req.isAuthenticated()){
         res.redirect('/dashboard')
     } else {
-        res.render('login', {invalid: true})
+        res.render('error', {message: 'Your credentials were...not credentialing (invalid)'})
     }
 })
 
@@ -87,40 +88,40 @@ app.get('/invalid-login', (req, res, next) => {
 app.post('/login-user', passport.authenticate('local', {failureRedirect: '/invalid-login', successRedirect: '/dashboard'}))
 app.get('/logout', (req, res, next) => {
     console.log(`User ${req.user.username} is logged out.`)
-    req.logout(err => {
-        req.session.destroy(err => {
-            if (err) {
-                next(err)
-            }
-            res.clearCookie('connect.sid')
-            res.redirect('/')
+    if (req.isAuthenticated()){
+        req.logout(err => {
+            req.session.destroy(err => {
+                if (err) {
+                    next(err)
+                }
+                res.clearCookie('connect.sid')
+                res.redirect('/')
+            })
         })
-    })
+    } else {
+        res.redirect('/')
+    }
 })
 app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
 })
 app.post('/new-user', async (req, res, next) => {
-    try {
-        let duplicateUser = await Users.findOne({
-            username: req.body.username
+    let duplicateUser = await Users.findOne({
+        username: req.body.username
+    })
+    if (duplicateUser){
+        res.render('newuser', {success: false})
+    } else {
+        console.log('User does not exist. Creating new user.')
+        const hashPass = await bcrypt.hash(req.body.password, 10)
+        Users.create({
+            username: req.body.username,
+            fname: req.body.fname,
+            lname: req.body.lname || '',
+            password: hashPass,
+            permissions: req.body.permissions
         })
-        if (duplicateUser){
-            res.render('newuser', {success: false})
-        } else {
-            console.log('User does not exist. Creating new user.')
-            const hashPass = await bcrypt.hash(req.body.password, 10)
-            Users.create({
-                username: req.body.username,
-                fname: req.body.fname,
-                lname: req.body.lname || '',
-                password: hashPass,
-                permissions: req.body.permissions
-            })
-            res.render('login', {success: true})
-        }
-    } catch {
-        console.log('error')
+        res.render('login', {invalid: false})
     }
 })
 

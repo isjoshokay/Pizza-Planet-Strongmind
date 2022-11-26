@@ -3,10 +3,17 @@ const router = express.Router()
 const Users = require('../models/users')
 const Toppings = require('../models/toppings')
 const Pizzas = require('../models/pizzas')
-
-const setImage = (item) => {
-    // depending on the type specified when created, this is how the image path is set for a record in the database.
-    // if item is a pizza, then the image will be whichever best fits.
+let success = true
+const setToppingImage = (type) => {
+    if (type == 'Sauce'){
+        return './images/tomato.png'
+    } else if (type == 'Cheese'){
+        return './images/shredded-cheese.png'
+    } else if (type == 'Veggies') {
+        return './images/mushrooms-generic.png'
+    } else if (type == 'Meat'){
+        return './images/pepperoni.png'
+    }
 }
 
 router.get('/', async (req, res, next) => {
@@ -17,19 +24,35 @@ router.get('/', async (req, res, next) => {
         // const pizzas = await Pizzas.find()
         if (req.user.permissions == 'Owner'){
             // Owner needs read+write access to toppings and read access to pizzas.
-            res.render('create', {user: req.user, toppings: toppings, title: 'Create'})
+            res.render('create', {user: req.user, toppings: toppings, title: 'Create', success: success})
         } else if (req.user.permissions == 'Chef'){
             // Chef needs read access to toppings and read+write access to pizzas. 
             console.log(toppings)
-            res.render('create-pizza', {user:req.user, toppings: toppings, pizzas: pizzas})
+            res.render('create-pizza', {user:req.user, toppings: toppings, pizzas: pizzas, success: success})
         }
     } else {
         res.redirect('/')
     }
-    
 })
-router.post('/submit-topping', (req, res, next) => {
-    console.log(req.body)
+router.post('/submit-topping', async (req, res, next) => {
+    const newTopping = {
+        name: req.body.name,
+        type: req.body.type,
+        price: req.body.price,
+        img: setToppingImage(req.body.type),
+        createdby: req.user.username
+    }
+    // No duplicate toppings
+    let duplicate = await Toppings.findOne({
+        name: newTopping.name
+    })
+    if (duplicate){
+        console.log('Duplicate found!', duplicate)
+        success = false
+        res.redirect('create')
+    }
+    await Toppings.create(newTopping)
+    res.redirect('..')
 })
 
 

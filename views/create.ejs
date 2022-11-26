@@ -10,6 +10,11 @@
                 </a>
                 <div style="padding-top: 10px;">
                     <h2>Create a topping</h2>
+                    <% if (!success) { %>
+                        <div class="success-message" style="color: red">
+                            Topping already exists!
+                        </div>
+                    <% } %> 
                 </div>
                 <form id="login-form" action="/create/submit-topping" method="POST">
                     <div>
