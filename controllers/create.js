@@ -49,12 +49,16 @@ router.post('/submit-topping', async (req, res, next) => {
     if (duplicate){
         console.log('Duplicate found!', duplicate)
         success = false
-        res.redirect('create')
+        res.redirect('.')
+    } else {
+        await Toppings.create(newTopping)
+        res.redirect('..')
     }
-    await Toppings.create(newTopping)
-    res.redirect('..')
+    
 })
-
+router.post('/update', (req, res, next) => {
+    await
+})
 router.post('/delete', async (req, res, next) => {
     await Toppings.findByIdAndDelete(req.body.id)
     res.redirect('..')
