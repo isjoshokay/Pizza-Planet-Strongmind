@@ -50,24 +50,29 @@ router.post('/submit-topping', async (req, res, next) => {
         })
         if (duplicate){
             console.log('Duplicate found!', duplicate)
-            throw new Error('That item already exists')
+            throw new Error
         } else {
             await Toppings.create(newTopping)
             res.redirect('..')
         }
     } catch(err) {
-        next(ErrorMessage.badRequest('This topping already exists'))
+        next(ErrorMessage.badRequest('A topping by that name already exists'))
     }
 })
 
 router.post('/update', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
-    foundTopping = await Toppings.findById(req.body.id)
-    if (!foundTopping) {
-        res.render('error', {message: 'The topping no longer exists'})
-    } else {
-        res.render('create', {user: req.user, title: 'Update'})
+    try{
+        foundTopping = await Toppings.findById(req.body.id)
+        if (!foundTopping) {
+            throw new Error
+        } else {
+            res.render('update', {user: req.user, title: 'Update'})
+        }
+    } catch(err) {
+        next(ErrorMessage.badRequest('This topping was not found. Perhaps it was deleted?'))
     }
+    
 })
 router.post('/delete', async (req, res, next) => {
     await Toppings.findByIdAndDelete(req.body.id)
