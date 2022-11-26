@@ -28,7 +28,7 @@ db.on('error', (err) => console.error(err))
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
 
-// Middleware
+// Misc Middleware
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -56,7 +56,7 @@ app.use(session({
     saveUninitialized: true,
     store: sessionStore,
     cookie: {
-        maxAge: 300000
+        maxAge: 1000 * 60 * 60 * 24
     }
 }))
 // Passport Authentication

@@ -3,10 +3,10 @@
     <%- include('./partials/head.ejs'); %>
     <body>
         <div id="login-container">
-            <div id="form-wrapper">
-                <form action=".." method="GET">
-                    <button class="back-button" type="submit"><i class="fa-solid fa-circle-chevron-left"></i></button>
-                </form>
+            <a href="..">
+                <div class="back-button" type="submit"><i class="fa-solid fa-circle-chevron-left"></i></div>
+            </a>
+            <div id="form-wrapper" class="create">
                 <div id="big-logo"><img src="/images/Pizza_Planet.png" alt=""></div>
                 <h2>Arcade & Cuisine</h2>
                 <% if (!success) { %>
