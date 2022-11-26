@@ -37,12 +37,14 @@
                         <%= e.createdby %>
                     </div>
                     <div class="item-content">
-                        <div class="action-button">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </div>
-                        <div class="action-button">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </div>
+                        <form action="/create/update" method="POST" class="action-button">
+                            <input type="hidden" name="id" value=<%= e.id %>>
+                            <button><i class="fa-regular fa-pen-to-square"></i></button>
+                        </form>
+                        <form action="/create/delete" method="POST"class="action-button">
+                            <input type="hidden" name="id" value=<%= e.id %>>
+                            <button><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
                     </div>
                 </div>
             <%}) %>

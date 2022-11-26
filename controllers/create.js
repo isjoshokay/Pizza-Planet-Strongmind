@@ -55,5 +55,9 @@ router.post('/submit-topping', async (req, res, next) => {
     res.redirect('..')
 })
 
+router.post('/delete', async (req, res, next) => {
+    await Toppings.findByIdAndDelete(req.body.id)
+    res.redirect('..')
+})
 
 module.exports = router
