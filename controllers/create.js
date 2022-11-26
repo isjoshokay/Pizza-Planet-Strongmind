@@ -77,7 +77,8 @@ router.post('/update', async (req, res, next) => {
                     throw new Error('A topping by that name already exists')
                 }
             } 
-            await Toppings.findOneAndUpdate(req.body.id, {
+            console.log(req.body)
+            await Toppings.findByIdAndUpdate(req.body.id, {
                 name: req.body.name,
                 type: req.body.type,
                 price: req.body.price,

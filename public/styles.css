@@ -211,6 +211,7 @@ div > input, select {
 
 .item-content {
     display: inline-block;
+    vertical-align: sub;
     font-family: 'Exo 2', sans-serif;
     margin: 3px;
 }
