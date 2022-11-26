@@ -34,18 +34,11 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
 
-// Error Handler Middleware
-const errorHandler = (err, req, res, next) => {
-    if (err){
-        console.log(err)
-        res.render('error', {message: 'Unknown error'})
-    } else {
-        next()
-    }
-}
+
 // Session setup
 // Session Store in MongoDB
 const MongoStore = require('connect-mongo')
+const ErrorMessage = require('./Errors')
 const sessionStore = MongoStore.create({
     mongoUrl: process.env.MONGODB_URL,
     dbName: 'pizzaplanet'
@@ -72,9 +65,8 @@ app.get('/', (req, res, next) => {
     if (req.isAuthenticated()){
         res.redirect('/dashboard')
     } else {
-        res.render('login', {invalid: false})
+        res.render('login')
     }
-    next()
 })
 app.get('/invalid-login', (req, res, next) => {
     if (req.isAuthenticated()){
@@ -125,6 +117,20 @@ app.post('/new-user', async (req, res, next) => {
     }
 })
 
-app.use(errorHandler)
+app.get('/error', (req,res,next) => {
+    console.log(app.locals.errormsg)
+    res.render('error', {message: app.locals.errormsg})
+})
+// Error Handler
+app.use((err, req, res, next) => {
+    // console.error(err)
+    console.log(err)
+    if (err instanceof ErrorMessage){
+        app.locals.errormsg = err.message
+        res.redirect('/error')
+        return
+    }
+    res.status(500).json('something went wrong')
+})
 const PORT = process.env.PORT || 3000
 app.listen(PORT) 

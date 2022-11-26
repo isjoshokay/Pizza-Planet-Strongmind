@@ -3,6 +3,8 @@ const router = express.Router()
 const Users = require('../models/users')
 const Toppings = require('../models/toppings')
 const Pizzas = require('../models/pizzas')
+const ErrorMessage = require('../Errors')
+
 const setToppingImage = (type) => {
     if (type == 'Sauce'){
         return './images/tomato.png'
@@ -34,28 +36,38 @@ router.get('/', async (req, res, next) => {
     }
 })
 router.post('/submit-topping', async (req, res, next) => {
-    const newTopping = {
-        name: req.body.name,
-        type: req.body.type,
-        price: req.body.price,
-        img: setToppingImage(req.body.type),
-        createdby: req.user.username
+    try{
+        const newTopping = {
+            name: req.body.name,
+            type: req.body.type,
+            price: req.body.price,
+            img: setToppingImage(req.body.type),
+            createdby: req.user.username
+        }
+            // No duplicate toppings
+        let duplicate = await Toppings.findOne({
+            name: newTopping.name
+        })
+        if (duplicate){
+            console.log('Duplicate found!', duplicate)
+            throw new Error('That item already exists')
+        } else {
+            await Toppings.create(newTopping)
+            res.redirect('..')
+        }
+    } catch(err) {
+        next(ErrorMessage.badRequest('This topping already exists'))
     }
-    // No duplicate toppings
-    let duplicate = await Toppings.findOne({
-        name: newTopping.name
-    })
-    if (duplicate){
-        console.log('Duplicate found!', duplicate)
-        res.render('error', {message: 'Topping already exists'})
-    } else {
-        await Toppings.create(newTopping)
-        res.redirect('..')
-    }
-    
 })
-router.post('/update', (req, res, next) => {
-    await
+
+router.post('/update', async (req, res, next) => {
+    // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
+    foundTopping = await Toppings.findById(req.body.id)
+    if (!foundTopping) {
+        res.render('error', {message: 'The topping no longer exists'})
+    } else {
+        res.render('create', {user: req.user, title: 'Update'})
+    }
 })
 router.post('/delete', async (req, res, next) => {
     await Toppings.findByIdAndDelete(req.body.id)
