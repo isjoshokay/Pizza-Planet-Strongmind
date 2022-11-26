@@ -6,9 +6,9 @@
             <div id="form-wrapper">
                 <div id="big-logo"><img src="/images/Pizza_Planet.png" alt=""></div>
                 <h2>Arcade & Cuisine</h2>
-                <% if (success) { %>
+                <% if (invalid) { %>
                     <div class="success-message">
-                        User Successfully Created!
+                        Your credentials do not match our records.
                     </div>
                 <% } %> 
                 <form id="login-form" action="/login-user" method="POST">

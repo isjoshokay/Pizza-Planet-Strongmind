@@ -4,28 +4,32 @@
     <body>
         <div id="login-container">
             <div id="form-wrapper" class="create">
-                <% if (success) { %>
-                    <div class="success-message">
-                        Successfully added.
-                    </div>
-                <% } %> 
-                <form id="login-form" action="/login-user" method="POST">
-                    <div>
-                        <input type="text" name="username" placeholder="username" autocomplete="off" required>
-                    </div>
-                    <div>
-                        <input type="password" name="password" placeholder="password" required>
-                    </div>
-                    <button class="button" type="submit">Login</button>
-                </form>
-                <a href="/new-user" style="text-decoration: none">
-                    <div class="button" id="create-user-button">
-                        Create User
-                    </div>
+                <a href="/dashboard">
+                    <div class="back-button"><i class="fa-solid fa-circle-chevron-left"></i></div>
                 </a>
+                <div style="padding-top: 10px;">
+                    <h2>Create a topping</h2>
+                </div>
+                <form id="login-form" action="/create/submit-topping" method="POST">
+                    <div>
+                        <input type="text" name="name" placeholder="name of topping" autocomplete="off" required>
+                        <select name="type">
+                            <option value="Sauce">Sauce</option>
+                            <option value="Cheese">Cheese</option>
+                            <option value="Veggies">Veggies</option>
+                            <option value="Meat">Meat</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="number" min="0" max="4" step=".01" placeholder="Price" name="price">
+                    </div>
+                    <div>
+                        Created by: <%= user.username %>
+                    </div>
+                    <button class="button" type="submit">Submit</button>
+                </form>
             </div>
         </div> <!--Login container ends-->
-
     </body>
     <footer>
         Built by Joshua Peoples 

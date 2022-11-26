@@ -56,7 +56,7 @@ app.use(session({
     saveUninitialized: true,
     store: sessionStore,
     cookie: {
-        maxAge: 10000
+        maxAge: 300000
     }
 }))
 // Passport Authentication
@@ -66,11 +66,18 @@ app.use(passport.session())
 // Routes
 app.use('/dashboard', require('./controllers/dashboard'))
 app.use('/create', require('./controllers/create'))
+
 app.get('/', (req, res, next) => {
     // if user is authenticated, render dashboard with data. Otherwise, show login. 
-    res.render('login', {success: false})
+    if (req.isAuthenticated()){
+        res.redirect('/dashboard')
+    }
+    res.render('login', {invalid: false})
 })
-app.post('/login-user', passport.authenticate('local', {failureRedirect: '/', successRedirect: '/dashboard'}))
+app.get('/invalid-login', (req, res, next) => {
+    res.render('login', {invalid: true})
+})
+app.post('/login-user', passport.authenticate('local', {failureRedirect: '/invalid-login', successRedirect: '/dashboard'}))
 
 app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
