@@ -3,7 +3,6 @@ const router = express.Router()
 const Users = require('../models/users')
 const Toppings = require('../models/toppings')
 const Pizzas = require('../models/pizzas')
-let success = true
 const setToppingImage = (type) => {
     if (type == 'Sauce'){
         return './images/tomato.png'
@@ -24,14 +23,14 @@ router.get('/', async (req, res, next) => {
         // const pizzas = await Pizzas.find()
         if (req.user.permissions == 'Owner'){
             // Owner needs read+write access to toppings and read access to pizzas.
-            res.render('create', {user: req.user, toppings: toppings, title: 'Create', success: success})
+            res.render('create', {user: req.user, title: 'Create'})
         } else if (req.user.permissions == 'Chef'){
             // Chef needs read access to toppings and read+write access to pizzas. 
             console.log(toppings)
-            res.render('create-pizza', {user:req.user, toppings: toppings, pizzas: pizzas, success: success})
+            res.render('create-pizza', {user:req.user, toppings: toppings})
         }
     } else {
-        res.redirect('/')
+        res.redirect('/create')
     }
 })
 router.post('/submit-topping', async (req, res, next) => {
@@ -48,8 +47,7 @@ router.post('/submit-topping', async (req, res, next) => {
     })
     if (duplicate){
         console.log('Duplicate found!', duplicate)
-        success = false
-        res.redirect('.')
+        res.render('error', {message: 'Topping already exists'})
     } else {
         await Toppings.create(newTopping)
         res.redirect('..')
