@@ -14,10 +14,10 @@ router.get('/', async (req, res, next) => {
     // depending on the type of user, a different page is rendered.
     if (req.isAuthenticated()){
         const toppings = await Toppings.find()
-        const pizzas = await Pizzas.find()
+        // const pizzas = await Pizzas.find()
         if (req.user.permissions == 'Owner'){
             // Owner needs read+write access to toppings and read access to pizzas.
-            res.render('create', {user: req.user, toppings: toppings})
+            res.render('create', {user: req.user, toppings: toppings, title: 'Create'})
         } else if (req.user.permissions == 'Chef'){
             // Chef needs read access to toppings and read+write access to pizzas. 
             console.log(toppings)

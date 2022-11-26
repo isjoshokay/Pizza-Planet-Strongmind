@@ -2,6 +2,7 @@
 <html>
     <%- include('./partials/head.ejs'); %>
     <body>
+        <%- include('./partials/header-nav.ejs', {nav_title: title, username: user.username}); %>
         <div id="login-container">
             <div id="form-wrapper" class="create">
                 <a href="/dashboard">

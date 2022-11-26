@@ -78,7 +78,18 @@ app.get('/invalid-login', (req, res, next) => {
     res.render('login', {invalid: true})
 })
 app.post('/login-user', passport.authenticate('local', {failureRedirect: '/invalid-login', successRedirect: '/dashboard'}))
-
+app.get('/logout', (req, res, next) => {
+    console.log(`User ${req.user.username} is logged out.`)
+    req.logout(err => {
+        req.session.destroy(err => {
+            if (err) {
+                next(err)
+            }
+            res.clearCookie('connect.sid')
+            res.redirect('/')
+        })
+    })
+})
 app.get('/new-user', (req, res, next) => {
     res.render('newuser', {success: true})
 })
