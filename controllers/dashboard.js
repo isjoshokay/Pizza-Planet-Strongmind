@@ -9,7 +9,12 @@ router.get('/', async (req, res, next) => {
     // Depending on the type of user, a different page is rendered.
     if (req.isAuthenticated()){
         let toppings = await Toppings.find({})
-        res.render('dashboard', {user: req.user, title: 'Dashboard', data: toppings})
+        if (req.user.permissions == 'Owner'){
+            res.render('dashboard', {user: req.user, title: 'All Toppings', data: toppings})
+        } else if (req.user.permissions == 'Chef'){
+            res.render('chefdashboard', {user: req.user, title: 'All Pizzas'})
+        }
+        
     } else {
         res.redirect('/')
     }  

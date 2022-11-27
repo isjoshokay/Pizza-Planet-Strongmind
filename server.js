@@ -79,7 +79,6 @@ app.get('/invalid-login', (req, res, next) => {
 // Log in, log out routes
 app.post('/login-user', passport.authenticate('local', {failureRedirect: '/invalid-login', successRedirect: '/dashboard'}))
 app.get('/logout', (req, res, next) => {
-    console.log(`User ${req.user.username} is logged out.`)
     if (req.isAuthenticated()){
         req.logout(err => {
             req.session.destroy(err => {
@@ -104,7 +103,6 @@ app.post('/new-user', async (req, res, next) => {
     if (duplicateUser){
         res.render('newuser', {success: false})
     } else {
-        console.log('User does not exist. Creating new user.')
         const hashPass = await bcrypt.hash(req.body.password, 10)
         Users.create({
             username: req.body.username,
@@ -118,13 +116,11 @@ app.post('/new-user', async (req, res, next) => {
 })
 
 app.get('/error', (req,res,next) => {
-    console.log(app.locals.errormsg)
     res.render('error', {message: app.locals.errormsg})
 })
 // Error Handler
 app.use((err, req, res, next) => {
-    // console.error(err)
-    console.log(err)
+    console.error(err)
     if (err instanceof ErrorMessage){
         app.locals.errormsg = err.message
         res.redirect('/error')

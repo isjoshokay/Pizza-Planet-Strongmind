@@ -23,10 +23,8 @@ const verifyCallback = async (username, password, done) => {
         // validate password (returns t/f)
         const isValid = await bcrypt.compare(password, user.password)
         if (isValid) {
-            console.log("user is valid")
             return done(null, user)
         } else {
-            console.log("user is not valid")
             return done(null, false)
         }
     }).catch((err) => {

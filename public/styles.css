@@ -4,7 +4,6 @@ body {
     color: #fff;
     margin: 0;
 }
-
 /* The below two rules are for the arrows inside input when type is number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -12,7 +11,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
@@ -263,8 +261,53 @@ div > input, select {
     border-radius: 10px;
 }
 
+#pizza-view-container {
+    width: 85%;
+    margin: auto;
+    background-color: rgba(98, 98, 165, 0.4);
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 5px;
+    font-family: 'Exo 2', sans-serif;
+
+}
+#pizza-list-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+}
+.pizza-list-item-wrapper {
+    border: 1px solid #bc1a1f;
+    box-shadow: 0px 5px 5px #1e1f4e;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 500px;
+    max-height: 160px;
+    background-color: #1e1f4e;
+    margin: 5px;
+}
+.pizza-list-item-image {
+    width: 250px;
+}
+.pizza-list-item-image > img {
+    max-height: 100%;
+    max-width: 100%;
+}
+/* Max Chars: 90 for description, 16 for title, 10 for a topping*/
+.pizza-list-item-data {
+    display: grid;
+    grid-template-rows: .4fr 1.6fr 1fr;
+}
+.pizza-list-topping {
+    display: inline;
+    background-color: #13ab08;
+    margin: 3px;
+}
+
 #primary{
-    border: 1px solid white;
     background-color: #1e1f4e;
     width: 100px;
     height: 30px;
@@ -272,7 +315,6 @@ div > input, select {
 
 }
 #secondary{
-    border: 1px solid white;
     background-color: #870d51;
     width: 100px;
     height: 30px;
@@ -288,7 +330,6 @@ div > input, select {
 
 }
 #words{
-    border: 1px solid white;
     background-color: #13ab08;
     width: 100px;
     height: 30px;
