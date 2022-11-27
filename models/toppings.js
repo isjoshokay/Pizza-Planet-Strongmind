@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const ObjectId = mongoose.Schema.Types.ObjectId
 // Create the results moodel
 let toppingsModel = mongoose.model('toppings', {
     name: {
@@ -17,8 +17,9 @@ let toppingsModel = mongoose.model('toppings', {
     img: {
         type: String,
     },
-    createdby: {
-        type: String,
+    users: {
+        type: ObjectId,
+        ref: 'users',
         required: true
     },
 })

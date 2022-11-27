@@ -14,6 +14,8 @@ const setToppingImage = (type) => {
         return './images/mushrooms-generic.png'
     } else if (type == 'Meat'){
         return './images/pepperoni.png'
+    } else if (type == 'Garnish'){
+        return './images/basil.png'
     }
 }
 
@@ -42,7 +44,7 @@ router.post('/submit-topping', async (req, res, next) => {
             type: req.body.type,
             price: req.body.price,
             img: setToppingImage(req.body.type),
-            createdby: req.user.username
+            users: req.user.id
         }
             // No duplicate toppings
         let duplicate = await Toppings.findOne({
@@ -82,8 +84,7 @@ router.post('/update', async (req, res, next) => {
                 name: req.body.name,
                 type: req.body.type,
                 price: req.body.price,
-                img: setToppingImage(req.body.type),
-                createdby: req.body.createdby
+                img: setToppingImage(req.body.type)
             })  
             res.redirect('back')
         

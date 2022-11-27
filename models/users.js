@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 // Create the results moodel
-let resultsModel = mongoose.model('users', {
+let usersModel = mongoose.model('users', {
     username: {
         type: String,
         required: true
@@ -26,4 +27,4 @@ let resultsModel = mongoose.model('users', {
     }
 })
 
-module.exports = resultsModel
+module.exports = usersModel

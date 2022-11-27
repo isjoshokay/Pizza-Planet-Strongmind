@@ -34,7 +34,7 @@
                         $<%= e.price %>
                     </div>
                     <div class="item-content content-body">
-                        <%= e.createdby %>
+                        <%= e.users.username %>
                     </div>
                     <div class="item-content content-body">
                         <div onclick="displayModal(this)" style="display: inline">
@@ -74,7 +74,7 @@
                             <label for="price">Price</label>
                             <input name="price" type="number" min="0" max="4" step=".01" id="update-topping-price" required>
                         </div>
-                        <input type="hidden" name="createdby" id="update-topping-createdby" value=<%= user.username %>>
+                        <input type="hidden" name="users" id="update-topping-createdby" value=<%= user.username %>>
                         <input type="hidden" name="id" id="update-topping-id">
                         <button class="button" type="submit">Submit Changes</button>
                     </form>

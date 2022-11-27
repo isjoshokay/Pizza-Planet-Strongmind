@@ -286,7 +286,7 @@ div > input, select {
     grid-template-columns: 1fr 1fr;
     width: 500px;
     max-height: 160px;
-    background-color: #1e1f4e;
+    background-color: #9c9dbe;
     margin: 5px;
 }
 .pizza-list-item-image {
