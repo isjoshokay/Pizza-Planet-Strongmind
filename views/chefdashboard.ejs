@@ -78,7 +78,7 @@
                             
                             <img src="./images/pizza-pep-veg.webp" alt="">
                             <div style="margin: auto; width: 80%; text-align: center;">
-                                <small>Select an image to represent this creation</small>
+                                <!-- <small>Select an image to represent this creation</small> -->
                             </div>
                         </div>
                         <div id="pizza-new-forminputs">
@@ -94,16 +94,15 @@
                     </div>
                     <div id="pizza-new-toppings"> 
                         <h3>Choose Toppings</h3>
-                        <div class="available-topping">
-                            Mozzarella
-                        </div>
-                        <div class="available-topping selected">
-                            Chicken
-                        </div>
+                        <% toppings.map(topping => { %>
+                            <div class="available-topping">
+                                <input type="hidden" value=<%=topping.id%>>
+                                <%=topping.name%>
+                            </div>
+                        <% }) %>
                     </div>
                     <div id="pizza-new-actions">
-                        <button class="button">Delete Pizza</button>
-                        <button class="button" style="width:fit-content">Submit Changes</button>
+                        <button class="button" type="submit" style="width:fit-content">Submit Changes</button>
                     </div>
                 </form>
             </div>
