@@ -24,22 +24,20 @@
                     <div class="item-content">
                         <img src=<%=e.img %> alt="">
                     </div>
-                    <div class="item-content">
+                    <div class="item-content content-body">
                         <%= e.name %>
                     </div>
-                    <div class="item-content">
+                    <div class="item-content content-body">
                         <%= e.type %>
                     </div>
-                    <div class="item-content">
+                    <div class="item-content content-body">
                         $<%= e.price %>
                     </div>
-                    <div class="item-content">
+                    <div class="item-content content-body">
                         <%= e.createdby %>
                     </div>
-                    <div class="item-content">
-                        
+                    <div class="item-content content-body">
                         <div onclick="displayModal(this)" style="display: inline">
-                            
                             <i class="fa-regular fa-pen-to-square"></i>
                             <p style="display: none" class="update-topping-id-values"><%= e.id %></p>
                             <input type="hidden" value=<%=e.name%>>

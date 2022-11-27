@@ -184,7 +184,7 @@ div > input, select {
     max-height: 600px;
     background-color: rgba(98, 98, 165, 0.4);
     text-align: center;
-    padding: 10px;
+    padding: 5px 10px 10px 10px;
     min-width: 200px;
 }
 .success-message {
@@ -207,6 +207,11 @@ div > input, select {
 
 .content-head {
     text-decoration: underline;
+    padding-top: 10px;
+}
+
+.content-body {
+    padding-top: 10px;
 }
 
 .item-content {
@@ -222,6 +227,7 @@ div > input, select {
     max-height: 90%;
     display: inline;
     border-radius: 4px;
+
 }
 
 .action-button {
