@@ -261,6 +261,22 @@ div > input, select {
     border-radius: 10px;
 }
 
+#initial-pizza-message-container {
+    height: 7%;
+    width: 30%;
+    margin: auto;
+    padding: 3%;
+    border: 1px solid #bc1a1f;
+    border-radius: 10px;
+    background-color: rgba(5, 27, 105, 0.3);
+    align-items: center;
+    font-size: 1em;
+}
+#initial-pizza-message-div {
+    display: flex;
+    align-items: center;
+}
+
 #pizza-view-container {
     width: 85%;
     margin: auto;
@@ -313,7 +329,7 @@ div > input, select {
     background-color: #13ab08;
     margin: 3px;
 }
-#pizza-update-wrapper {
+#pizza-update-wrapper, #pizza-new-wrapper {
     width: 90%;
     margin: 10% auto;
     height: fit-content;
@@ -323,15 +339,16 @@ div > input, select {
     padding: 10px;
 }
   
-#pizza-update-metadata {
+#pizza-update-metadata, #pizza-new-metadata {
     display: grid;
     grid-template-columns: .8fr 1.2fr;
 }
-#pizza-update-photo>img {
+#pizza-update-photo>img, #pizza-new-photo>img {
     max-width: 100%;
 }
-#pizza-update-actions {
+#pizza-update-actions, #pizza-new-actions {
     margin: auto;
+    padding-top: 10px;
     text-align: center;
 }
 .available-topping {

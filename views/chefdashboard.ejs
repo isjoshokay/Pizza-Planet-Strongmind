@@ -156,8 +156,14 @@
                         </div>
                     </div>
                 </div>
-                
-                <form id="pizza-update-wrapper">
+                <!-- INITIAL CONTENT BEFORE CLICKING A PIZZA OR CLICKING NEW PIZZA BUTTON  -->
+                <div id="initial-pizza-message-container">
+                    <div id="initial-pizza-message-div">
+                        Select a pizza to update or create a new pizza to begin.
+                    </div>
+                </div>
+                <!-- BEGIN RIGHT SIDE OF PAGE  -->
+                <form id="pizza-update-wrapper" style="display: none;">
                     <div id="pizza-update-metadata">
                         <div id="pizza-update-photo">
                             
@@ -177,26 +183,51 @@
                             </div>
                         </div>
                     </div>
-                    <div id="pizza-update-toppings"> 
-                        For each 
+                    <div id="pizza-update-toppings">  
                         <h3>Choose Toppings</h3>
-                        <div class="available-topping">
-                            Mozzarella
-                        </div>
-                        <div class="available-topping">
-                            Tomato Sauce
-                        </div>
                         <div class="available-topping selected">
                             Chicken
                         </div>
                         <div class="available-topping">
                             Pineapple
                         </div>
-                        <div class="available-topping">
-                            Caviar
-                        </div>
                     </div>
                     <div id="pizza-update-actions">
+                        <button class="button">Delete Pizza</button>
+                        <button class="button" style="width:fit-content">Submit Changes</button>
+                    </div>
+                </form>
+                <!-- BEGIN NEW PIZZA CONTAINER  -->
+                <form id="pizza-new-wrapper" style="display: none;">
+                    <div id="pizza-new-metadata">
+                        <div id="pizza-new-photo">
+                            
+                            <img src="./images/pizza-pep-veg.webp" alt="">
+                            <div style="margin: auto; width: 80%; text-align: center;">
+                                <small>Select an image to represent this creation</small>
+                            </div>
+                        </div>
+                        <div id="pizza-new-forminputs">
+                            <div>
+                                <h3>New Pizza Name</h3>
+                                <input type="text" name="name" placeholder="Name" maxlength="17">
+                            </div>
+                            <div>
+                                <h3>Description</h3>
+                                <textarea name="description" maxlength="90" style="width: 95%; height: 20%; border-radius: 8px; resize: none;" id="new-pizza-description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pizza-new-toppings"> 
+                        <h3>Choose Toppings</h3>
+                        <div class="available-topping">
+                            Mozzarella
+                        </div>
+                        <div class="available-topping selected">
+                            Chicken
+                        </div>
+                    </div>
+                    <div id="pizza-new-actions">
                         <button class="button">Delete Pizza</button>
                         <button class="button" style="width:fit-content">Submit Changes</button>
                     </div>
