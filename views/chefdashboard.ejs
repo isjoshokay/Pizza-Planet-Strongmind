@@ -78,12 +78,11 @@
                             
                             <img src="./images/pizza-pep-veg.webp" alt="">
                             <div style="margin: auto; width: 80%; text-align: center;">
-                                <!-- <small>Select an image to represent this creation</small> -->
                             </div>
                         </div>
                         <div id="pizza-new-forminputs">
                             <div>
-                                <h3>New Pizza Name</h3>
+                                <h3 id="type-indicator">New Pizza Name</h3>
                                 <input type="text" name="name" placeholder="Name" maxlength="20">
                             </div>
                             <div>
@@ -93,10 +92,12 @@
                         </div>
                     </div>
                     <div id="pizza-new-toppings"> 
-                        <h3>Choose Toppings</h3>
+                        <h3 id="toppings-hover-indicator">Choose Toppings</h3>
+                        <input type="hidden" id="new-toppings-on-pizza">
                         <% toppings.map(topping => { %>
-                            <div class="available-topping">
-                                <input type="hidden" value=<%=topping.id%>>
+                            <div class="available-topping" onclick="addOrRemoveTopping(this)">
+                                <!-- // the name is to be placed inside newToppingsList for server side processing-->
+                                <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>
                             </div>
                         <% }) %>

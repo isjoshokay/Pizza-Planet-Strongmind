@@ -357,10 +357,15 @@ div > input, select {
 .available-topping {
     border: 1px dashed #bc1a1f;
     background-color: #870d51;
-    width: fit-content;
+    max-width: 8%;
+    height: 7%;
     display: inline;
     margin: 3px;
     padding: 3px;
+}
+.available-topping:hover{
+    color: #13ab08;
+    cursor: pointer;
 }
 .selected {
     border: 1px dashed #13ab08;
