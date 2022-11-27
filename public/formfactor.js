@@ -15,15 +15,21 @@ const adminControlKey = () => {
     }
 }
 
+// This is for editing a topping only
 const displayModal = (e) => {
     document.querySelector("#update-topping-name").value = e.children[2].value
     document.querySelector("#update-topping-type").value = e.children[3].value
     document.querySelector("#update-topping-price").value = e.children[4].value
     document.querySelector("#update-topping-id").value = e.children[1].innerHTML
     document.querySelector(".modal-container").style.display = "inline"
-    
 }
 
+// This is for editing a pizza only
+const displayPizzaModal = (e) => {
+
+}
+
+//This closes both modals on either 'dashboard' page
 const closeModal = () => {
     document.querySelector(".modal-container").style.display = "none"
 }

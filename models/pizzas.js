@@ -25,7 +25,6 @@ let pizzasModel = mongoose.model('pizzas', {
     users: {
         type: ObjectId,
         ref: 'users',
-        required: true
     },
 })
 
