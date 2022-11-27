@@ -266,19 +266,23 @@ div > input, select {
     margin: auto;
     background-color: rgba(98, 98, 165, 0.4);
     border-radius: 10px;
-    min-height: 300px;
     padding: 5px;
     font-family: 'Exo 2', sans-serif;
 }
 #pizza-view-control {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    height: 80vh;
 }
 #pizza-list-wrapper {
-    margin: auto;
+    margin: 5px;
     padding: 10px;
-    height: 700px;
+    max-height: 95%;
     overflow-y: scroll;
+}
+/* For Pizza List items  */
+::-webkit-scrollbar {
+    width: 10px;
 }
 .pizza-list-item-wrapper {
     border: 1px solid #bc1a1f;
@@ -295,10 +299,10 @@ div > input, select {
     width: 100%;
 }
 .pizza-list-item-image > img {
-    max-height: 100%;
-    max-width: 100%;
+    height: 100%;
+    width: 100%;
 }
-/* Max Chars: 90 for description, 16 for title, 10 for a topping*/
+/* Max Chars: 90 for description, 21 for title (move price to next line), 10 for a topping*/
 .pizza-list-item-data {
     display: grid;
     grid-template-rows: .4fr 1.6fr 1fr;
@@ -310,22 +314,25 @@ div > input, select {
     margin: 3px;
 }
 #pizza-update-wrapper {
-    border: 3px solid #13ab08;
-    display: grid;
-    grid-template-rows: .7fr .8fr 1.5fr;
+    width: 90%;
+    margin: 10% auto;
+    height: fit-content;
+    background-color: rgba(5, 27, 105, 0.5);
+    border: 2px solid #870d51;
+    border-radius: 10px;
+    padding: 10px;
 }
-
+  
 #pizza-update-metadata {
     display: grid;
     grid-template-columns: .8fr 1.2fr;
-    border: 2px solid blue;
 }
 #pizza-update-photo>img {
     max-width: 100%;
 }
 #pizza-update-actions {
-    width: fit-content;
     margin: auto;
+    text-align: center;
 }
 .available-topping {
     border: 1px dashed #bc1a1f;
@@ -333,6 +340,7 @@ div > input, select {
     width: fit-content;
     display: inline;
     margin: 3px;
+    padding: 3px;
 }
 .selected {
     border: 1px dashed #13ab08;
@@ -359,7 +367,6 @@ div > input, select {
     width: 100px;
     height: 30px;
     text-align: center;
-
 }
 #words{
     background-color: #13ab08;
