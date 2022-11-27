@@ -72,14 +72,8 @@
                     </div>
                 </form>
                 <!-- BEGIN NEW PIZZA CONTAINER  -->
-                <form id="pizza-new-wrapper" style="display: none;">
-                    <div id="pizza-new-metadata">
-                        <div id="pizza-new-photo">
-                            
-                            <img src="./images/pizza-pep-veg.webp" alt="">
-                            <div style="margin: auto; width: 80%; text-align: center;">
-                            </div>
-                        </div>
+                <form action="/create/submit-pizza" method="POST" id="pizza-new-wrapper" style="display: none;">
+                    <div>
                         <div id="pizza-new-forminputs">
                             <div>
                                 <h3 id="type-indicator">New Pizza Name</h3>
@@ -87,16 +81,16 @@
                             </div>
                             <div>
                                 <h3>Description</h3>
-                                <textarea name="description" maxlength="90" style="width: 95%; height: 20%; border-radius: 8px; resize: none;" id="new-pizza-description"></textarea>
+                                <textarea name="description" maxlength="90" style="width: 95%; height: 20%; border-radius: 8px; resize: none;" id="new-pizza-description" placeholder="Set a small message for customers to understand your creation"></textarea>
                             </div>
                         </div>
                     </div>
                     <div id="pizza-new-toppings"> 
-                        <h3 id="toppings-hover-indicator">Choose Toppings</h3>
-                        <input type="hidden" id="new-toppings-on-pizza">
+                        <h3>Choose Toppings</h3>
+                        <input type="hidden" id="new-toppings-on-pizza" name="toppings">
                         <% toppings.map(topping => { %>
                             <div class="available-topping" onclick="addOrRemoveTopping(this)">
-                                <!-- // the name is to be placed inside newToppingsList for server side processing-->
+                                <!-- // the name is to be placed inside newToppingsList for server side processing, it is not submitted in the form.-->
                                 <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>
                             </div>

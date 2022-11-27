@@ -62,6 +62,10 @@ router.post('/submit-topping', async (req, res, next) => {
     }
 })
 
+router.post('/submit-pizza', async (req, res, next) => {
+    console.log(req.body)
+})
+
 router.post('/update', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
     // the topping cannot be a duplicate of an entirely different topping (by id)

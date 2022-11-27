@@ -342,11 +342,11 @@ div > input, select {
     padding: 10px;
 }
   
-#pizza-update-metadata, #pizza-new-metadata {
+#pizza-update-metadata {
     display: grid;
     grid-template-columns: .8fr 1.2fr;
 }
-#pizza-update-photo>img, #pizza-new-photo>img {
+#pizza-update-photo>img {
     max-width: 100%;
 }
 #pizza-update-actions, #pizza-new-actions {

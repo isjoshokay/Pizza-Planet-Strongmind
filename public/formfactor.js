@@ -45,11 +45,13 @@ const addOrRemoveTopping = e => {
         if (itemIdx !== -1) {
             newToppingsList.splice(itemIdx, 1);
         }
+        document.querySelector("#new-toppings-on-pizza").value = newToppingsList
         console.log(newToppingsList)
         console.log(e.children[0].value, 'was removed from the pizza')
     } else {
         e.classList.toggle("selected")
         newToppingsList.push(e.children[0].value)
+        document.querySelector("#new-toppings-on-pizza").value = newToppingsList
         console.log(newToppingsList)
         console.log(e.children[0].value, 'was added to the pizza')
     }
