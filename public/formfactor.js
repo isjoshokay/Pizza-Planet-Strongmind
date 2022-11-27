@@ -29,6 +29,13 @@ const displayPizzaModal = (e) => {
 
 }
 
+const displayNewPizza = () => {
+    // Set the other two displays to none and display Create Pizza view. 
+    document.querySelector("#pizza-update-wrapper").style.display = "none"
+    document.querySelector("#initial-pizza-message-container").style.display = "none"
+    document.querySelector("#pizza-new-wrapper").style.display = "inline" 
+}
+
 //This closes both modals on either 'dashboard' page
 const closeModal = () => {
     document.querySelector(".modal-container").style.display = "none"

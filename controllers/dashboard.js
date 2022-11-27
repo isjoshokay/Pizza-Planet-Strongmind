@@ -15,8 +15,8 @@ router.get('/', async (req, res, next) => {
         if (req.user.permissions == 'Owner'){
             res.render('dashboard', {user: req.user, title: 'All Toppings', data: toppings})
         } else if (req.user.permissions == 'Chef'){
-            let pizzas = await Pizzas.find().populate('toppings').populate('users')
-            res.render('chefdashboard', {user: req.user, title: 'All Pizzas', pizzas: pizzas, toppings: toppings})
+            //let pizzas = await Pizzas.find().populate('toppings').populate('users')
+            res.render('chefdashboard', {user: req.user, title: 'All Pizzas', toppings: toppings})
         }
     } else {
         res.redirect('/')
