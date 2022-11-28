@@ -12,7 +12,7 @@
             <div id="pizza-view-control">
                 <div id="pizza-list-wrapper">
                     <% pizzas.map(pizza => { %>
-                        <div class="pizza-list-item-wrapper"> 
+                        <div class="pizza-list-item-wrapper" onclick="displayUpdatePizza()"> 
                             <div class="pizza-list-item-image">
                                 <img src="./images/pizza-pep-veg.webp" alt="">
                             </div>
@@ -68,12 +68,13 @@
                     </div>
                     <div id="pizza-update-toppings">  
                         <h3>Choose Toppings</h3>
-                        <div class="available-topping selected">
-                            Chicken
-                        </div>
-                        <div class="available-topping">
-                            Pineapple
-                        </div>
+                        <% toppings.map(topping => { %>
+                            <div class="available-topping" onclick="addOrRemoveTopping(this)">
+                                <!-- // the name is to be placed inside newToppingsList for server side processing, it is not submitted in the form.-->
+                                <input type="hidden" value=<%=topping.name%>>
+                                <%=topping.name%>
+                            </div>
+                        <% }) %>
                     </div>
                     <div id="pizza-update-actions">
                         <button class="button">Delete Pizza</button>

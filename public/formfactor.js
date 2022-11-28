@@ -31,8 +31,19 @@ const closeModal = () => {
 // This is for editing a pizza only
 let toppingsList = [] // This will be populated with all of the toppings the pizza has by name
 // the array will be appended to a hidden input for the form. 
-const displayPizzaModal = (e) => {
+const displayUpdatePizza = () => {
+    // Set the other two displays to none and display Create Pizza view. 
+    document.querySelector("#pizza-update-wrapper").style.display = "inline"
+    document.querySelector("#initial-pizza-message-container").style.display = "none"
+    document.querySelector("#pizza-new-wrapper").style.display = "none" 
+}
 
+// This is for creating a new pizza 
+const displayNewPizza = () => {
+    // Set the other two displays to none and display Create Pizza view. 
+    document.querySelector("#pizza-update-wrapper").style.display = "none"
+    document.querySelector("#initial-pizza-message-container").style.display = "none"
+    document.querySelector("#pizza-new-wrapper").style.display = "inline" 
 }
 
 // This is for adding and removing toppings from a pizza. (see above toppingsList var for more details)
@@ -57,11 +68,5 @@ const addOrRemoveTopping = e => {
     }
 }
 
-// This is for creating a new pizza 
-const displayNewPizza = () => {
-    // Set the other two displays to none and display Create Pizza view. 
-    document.querySelector("#pizza-update-wrapper").style.display = "none"
-    document.querySelector("#initial-pizza-message-container").style.display = "none"
-    document.querySelector("#pizza-new-wrapper").style.display = "inline" 
-}
+
 
