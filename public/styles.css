@@ -311,7 +311,7 @@ div > input, select {
     grid-template-columns: 1fr 1fr;
     width: 95%;
     max-height: 160px;
-    background-color: #9c9dbe;
+    background-color: #262751;
     margin: 5px;
 }
 .pizza-list-item-image {
@@ -331,6 +331,9 @@ div > input, select {
     display: inline;
     background-color: #13ab08;
     margin: 3px;
+}
+.pizza-li-extras {
+    display: inline;
 }
 #pizza-update-wrapper, #pizza-new-wrapper {
     width: 90%;

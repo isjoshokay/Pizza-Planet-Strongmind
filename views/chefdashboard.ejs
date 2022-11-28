@@ -11,24 +11,33 @@
             <div class="button" style="margin-left: 50px;" onclick="displayNewPizza()">Create a Pizza</div>
             <div id="pizza-view-control">
                 <div id="pizza-list-wrapper">
-                    <div class="pizza-list-item-wrapper"> 
-                        <div class="pizza-list-item-image">
-                            <img src="./images/pizza-pep-veg.webp" alt="">
+                    <% pizzas.map(pizza => { %>
+                        <div class="pizza-list-item-wrapper"> 
+                            <div class="pizza-list-item-image">
+                                <img src="./images/pizza-pep-veg.webp" alt="">
+                            </div>
+                            <div class="pizza-list-item-data">
+                                <div>
+                                    <h3 style="display: inline;"><%= pizza.name %></h3>
+                                    <div>
+                                        <span>$<%= pizza.price %></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <%= pizza.description %>
+                                </div>
+                                <div>
+                                    <% pizza.toppings.slice(0, 4).map(e => { %>
+                                        <div class="pizza-list-item-topping"><%= e.name %></div>
+                                    <% }) %>
+                                    <% if (pizza.toppings.length > 4){ %>
+                                        <% let extras = pizza.toppings.length - 4 %>
+                                            <div class="pizza-li-extras"><%= extras %> more</div> 
+                                    <% } %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pizza-list-item-data">
-                            <div>
-                                <h3 style="display: inline;">Pepperoni Pizzaaa</h3> ~ 10.99
-                            </div>
-                            <div>
-                                A description of a potential pizza but we're also gonna test how long we can make this go in.
-                            </div>
-                            <div>
-                                <div class="pizza-list-item-topping">Tomato Sauce</div>
-                                <div class="pizza-list-item-topping">Mozarella Cheese</div>
-                                <div class="pizza-list-item-topping">Pepperoni</div>
-                            </div>
-                        </div>
-                    </div>
+                    <% }) %>
                 </div>
                 <!-- INITIAL CONTENT BEFORE CLICKING A PIZZA OR CLICKING NEW PIZZA BUTTON  -->
                 <div id="initial-pizza-message-container">
