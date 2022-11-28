@@ -1,7 +1,6 @@
 const changeLabel = () => {
     document.querySelector("#js-test").innerHTML = document.querySelector("#js-input").value
 }
-
 const adminControlKey = () => {
     let option_val = document.querySelector("#select-type").value
     if (option_val == 'Owner'){
@@ -14,8 +13,7 @@ const adminControlKey = () => {
 
     }
 }
-
-// This is for editing a topping only
+// This is for editing a topping only, on the dashboard for the OWNER
 const displayModal = (e) => {
     document.querySelector("#update-topping-name").value = e.children[2].value
     document.querySelector("#update-topping-type").value = e.children[3].value
@@ -23,19 +21,27 @@ const displayModal = (e) => {
     document.querySelector("#update-topping-id").value = e.children[1].innerHTML
     document.querySelector(".modal-container").style.display = "inline"
 }
-//This closes both modals on either 'dashboard' page
+//This closes the modal
 const closeModal = () => {
     document.querySelector(".modal-container").style.display = "none"
 }
-
 // This is for editing a pizza only
-let toppingsList = [] // This will be populated with all of the toppings the pizza has by name
-// the array will be appended to a hidden input for the form. 
-const displayUpdatePizza = () => {
-    // Set the other two displays to none and display Create Pizza view. 
+const displayUpdatePizza = (e) => {
+    // Set the other two displays to none and display Update Pizza view. 
     document.querySelector("#pizza-update-wrapper").style.display = "inline"
     document.querySelector("#initial-pizza-message-container").style.display = "none"
     document.querySelector("#pizza-new-wrapper").style.display = "none" 
+
+    // populate the fields of the view based on which pizza was clicked
+    document.querySelector("#update-pizza-name").value = e.children[1].children[0].children[0].innerHTML
+    document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
+    // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
+    setToppings(e)
+}
+const setToppings = e => {
+    let toppingsList = [] // This will be populated with all of the toppings the pizza has by name
+    // the array will be appended to a hidden input for the form. 
+    console.log(e.children[1].children[2])
 }
 
 // This is for creating a new pizza 

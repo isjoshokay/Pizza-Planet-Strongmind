@@ -12,7 +12,7 @@
             <div id="pizza-view-control">
                 <div id="pizza-list-wrapper">
                     <% pizzas.map(pizza => { %>
-                        <div class="pizza-list-item-wrapper" onclick="displayUpdatePizza()"> 
+                        <div class="pizza-list-item-wrapper" onclick="displayUpdatePizza(this)"> 
                             <div class="pizza-list-item-image">
                                 <img src="./images/pizza-pep-veg.webp" alt="">
                             </div>
@@ -23,9 +23,8 @@
                                         <span>$<%= pizza.price %></span>
                                     </div>
                                 </div>
-                                <div>
-                                    <%= pizza.description %>
-                                </div>
+                                <div><%= pizza.description %></div>
+                                <input type="hidden" class="selected-pizza" value=<%= pizza.toppings %>>
                                 <div>
                                     <% pizza.toppings.slice(0, 4).map(e => { %>
                                         <div class="pizza-list-item-topping"><%= e.name %></div>
@@ -34,7 +33,7 @@
                                         <% let extras = pizza.toppings.length - 4 %>
                                             <div class="pizza-li-extras"><%= extras %> more</div> 
                                     <% } %>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     <% }) %>
@@ -45,29 +44,28 @@
                         Select a pizza to update or create a new pizza to begin.
                     </div>
                 </div>
-                <!-- BEGIN RIGHT SIDE OF PAGE  -->
+                <!-- BEGIN RIGHT SIDE OF PAGE, STARTING WITH UPDATE PIZZA VIEW -->
                 <form id="pizza-update-wrapper" style="display: none;">
                     <div id="pizza-update-metadata">
                         <div id="pizza-update-photo">
-                            
                             <img src="./images/pizza-pep-veg.webp" alt="">
                             <div style="margin: auto; width: 80%; text-align: center;">
-                                <small>Select an image to represent this creation</small>
                             </div>
                         </div>
                         <div id="pizza-update-forminputs">
                             <div>
-                                <h3>Name</h3>
-                                <input type="text" name="name" placeholder="Name" maxlength="20">
+                                <h3>Update Name</h3>
+                                <input type="text" name="name" placeholder="Name" maxlength="20" id="update-pizza-name">
                             </div>
                             <div>
-                                <h3>Description</h3>
+                                <h3>Update Description</h3>
                                 <textarea name="description" maxlength="90" style="width: 95%; height: 20%; border-radius: 8px; resize: none;" id="update-pizza-description"></textarea>
                             </div>
                         </div>
                     </div>
                     <div id="pizza-update-toppings">  
-                        <h3>Choose Toppings</h3>
+                        <h3>Update Toppings</h3>
+                        <input type="hidden" id="update-pizza-toppings-list">
                         <% toppings.map(topping => { %>
                             <div class="available-topping" onclick="addOrRemoveTopping(this)">
                                 <!-- // the name is to be placed inside newToppingsList for server side processing, it is not submitted in the form.-->
