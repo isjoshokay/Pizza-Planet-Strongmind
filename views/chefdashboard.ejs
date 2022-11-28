@@ -68,7 +68,7 @@
                         <h3>Update Toppings</h3>
                         <input type="hidden" id="update-pizza-toppings-list">
                         <% toppings.map(topping => { %>
-                            <div class="available-topping" onclick="addOrRemoveTopping(this)">
+                            <div class="available-topping-update" onclick="addOrRemoveTopping(this)">
                                 <!-- // the name is to be placed inside newToppingsList for server side processing, it is not submitted in the form.-->
                                 <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>

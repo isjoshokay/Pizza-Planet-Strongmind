@@ -36,9 +36,13 @@ const displayUpdatePizza = (e) => {
     document.querySelector("#update-pizza-name").value = e.children[1].children[0].children[0].innerHTML
     document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
-    setToppings(e)
+    populateToppings(e)
 }
-const setToppings = e => {
+const populateToppings = e => {
+    //unselect everything from the previously clicked element
+    document.querySelectorAll(".selected").forEach(topping => {
+        topping.classList.toggle("selected")
+    })
     let toppingsList = [] // This will be populated with all of the toppings the pizza has by name
     // the array will be appended to a hidden input for the form. 
     // parse through and remove 
@@ -50,11 +54,15 @@ const setToppings = e => {
             if (e[i].toLowerCase() !== e[i].toUpperCase()) {
                 word += e[i]
             }
-            
         }
         toppingsList.push(word)
     })
-    console.log(toppingsList)
+    document.querySelectorAll(".available-topping-update").forEach(topping => {
+        let found = toppingsList.find(j => j == topping.children[0].value)
+        if (found) {
+            topping.classList.toggle("selected")
+        }
+    })
 }
 
 // This is for creating a new pizza 
