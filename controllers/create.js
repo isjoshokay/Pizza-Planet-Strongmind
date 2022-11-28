@@ -139,6 +139,35 @@ router.post('/update', async (req, res, next) => {
     }
     
 })
+router.post('/update-pizza', async (req, res, next) => {
+    try {
+        foundPizza = await Pizzas.findById(req.body.id)
+        if (!foundPizza) {
+            throw new Error('This pizza no longer exists')
+        } else {
+            //duplicate name logic and toppings list check here
+            let duplicateByName = await Pizzas.findOne({
+                name: req.body.name
+            })
+            if (duplicateByName.id != req.body.id) {
+                console.log('Duplicate found!', duplicateByName)
+                throw new Error('A pizza by this name already exists.')
+            }
+            console.log(req.body)
+            await Pizzas.findByIdAndUpdate(req.body.id, {
+                name: req.body.name,
+                toppings: null, // Will address this later
+                description: req.body.description,
+                price: null, // will be addressed later
+                img: req.body.img,
+                users: req.user.id
+            })
+        }
+
+    } catch(err){
+        next(ErrorMessage.badRequest(err))
+    }
+})
 router.post('/delete', async (req, res, next) => {
     await Toppings.findByIdAndDelete(req.body.id)
     res.redirect('..')
