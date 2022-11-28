@@ -8,13 +8,13 @@
         </div>
         
         <div id="pizza-view-container">
-            <div class="button" style="margin-left: 50px;" onclick="displayNewPizza()">Create a Pizza</div>
             <div id="pizza-view-control">
                 <div id="pizza-list-wrapper">
+                    <div class="button" style="margin: 10px auto;" onclick="displayNewPizza()">Create a Pizza</div>
                     <% pizzas.map(pizza => { %>
                         <div class="pizza-list-item-wrapper" onclick="displayUpdatePizza(this)"> 
                             <div class="pizza-list-item-image">
-                                <img src="./images/pizza-pep-veg.webp" alt="">
+                                <img src=<%= pizza.img %>  alt="">
                             </div>
                             <div class="pizza-list-item-data">
                                 <div>
@@ -36,6 +36,7 @@
                                     <% } %>
                                 </div> 
                             </div>
+                            <input type="hidden" value=<%= pizza.id %>>
                         </div>
                     <% }) %>
                 </div>
@@ -66,17 +67,16 @@
                     </div>
                     <div id="pizza-update-toppings">  
                         <h3>Update Toppings</h3>
-                        <input type="hidden" id="update-pizza-toppings-list">
+                        <input type="hidden" id="update-toppings-on-pizza">
                         <% toppings.map(topping => { %>
                             <div class="available-topping-update" onclick="addOrRemoveTopping(this)">
-                                <!-- // the name is to be placed inside newToppingsList for server side processing, it is not submitted in the form.-->
+                                <!-- // the name is to be placed inside newToppingsList for processing, it is not submitted in the form.-->
                                 <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>
                             </div>
                         <% }) %>
                     </div>
-                    <div id="pizza-update-actions">
-                        <button class="button">Delete Pizza</button>
+                    <div id="pizza-update-actions">                        
                         <button class="button" style="width:fit-content">Submit Changes</button>
                     </div>
                 </form>
@@ -106,10 +106,15 @@
                         <% }) %>
                     </div>
                     <div id="pizza-new-actions">
-                        <button class="button" type="submit" style="width:fit-content">Submit Changes</button>
+                        <button class="button" type="submit" style="width:fit-content">Submit New Pizza</button>
                     </div>
                 </form>
             </div>
+            <form action="/create/delete-pizza" id="delete-button" method="POST">
+                <input type="hidden" name="id">
+                <button class="button">Delete this Pizza</button>
+            </form>
         </div>
+        
     </body>
 </html>

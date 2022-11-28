@@ -291,14 +291,15 @@ div > input, select {
     height: 80vh;
 }
 #pizza-list-wrapper {
-    margin: 5px;
-    padding: 10px;
+    margin: 5%;
     max-height: 95%;
+    background: linear-gradient(#bc1a1f, #6d063f);
     overflow-y: scroll;
+    border-radius: 10px;
 }
 /* For Pizza List items  */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0;
 }
 
 /* Masking for pizza list data overflow?  */
@@ -312,10 +313,11 @@ div > input, select {
     width: 95%;
     max-height: 160px;
     background-color: #262751;
-    margin: 5px;
+    margin: 3%;
 }
 .pizza-list-item-image {
     width: 100%;
+    padding-top: 4%;
 }
 .pizza-list-item-image > img {
     height: 100%;
@@ -373,6 +375,12 @@ div > input, select {
 .selected {
     border: 1px dashed #13ab08;
     background-color: #065400;
+}
+
+#delete-button {
+    width: 50%; 
+    text-align: center; 
+    margin: auto;
 }
 
 #primary{

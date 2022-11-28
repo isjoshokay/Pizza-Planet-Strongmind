@@ -21,28 +21,20 @@ const setToppingImage = (type) => {
 const setPizzaImg = () => {
     // returns a random pizza image path. 
     let randint = Math.floor(Math.random() * (6 - 1) + 1)
-    let imgPath
-
-    switch(randint) {
-        case 1:
-            imgPath = './images/pizza-cheese.png'
-            break;
-        case 2:
-            imgPath = './images/pizza-meaty.png'
-            break;
-        case 3:
-            imgPath = './images/pizza-pep-veg.webp'
-            break;
-        case 4:
-            imgPath = './images/pizza-tomatobasil.png'
-            break;
-        case 5:
-            imgPath = './images/pizza-vegetarian.png'
-            break;
-        default:
-           break
+    let imagePaths = ['./images/pizza-cheese.png', './images/pizza-meaty.png', './images/pizza-pep-veg.webp', './images/pizza-tomatobasil.png', './images/pizza-vegetarian.png']
+    let selectedImg = ''
+    if (randint == 1){
+        selectedImg = imagePaths[0]
+    } else if (randint == 2){
+        selectedImg = imagePaths[1]
+    } else if (randint == 3){
+        selectedImg = imagePaths[2]
+    } else if (randint == 4){
+        selectedImg = imagePaths[3]
+    } else {
+        selectedImg = imagePaths[4]
     }
-    return imgPath
+    return selectedImg
 }
 router.get('/', async (req, res, next) => {
     // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
@@ -108,6 +100,7 @@ router.post('/submit-pizza', async (req, res, next) => {
             price: (price + 5.00).toFixed(2)}
         // if duplicate, throw err, else add to newPizza to db. 
         await Pizzas.create(newPizza)
+        res.redirect("..")
     } catch(err) {
         next(ErrorMessage.badRequest(err))
     }
@@ -148,6 +141,10 @@ router.post('/update', async (req, res, next) => {
 })
 router.post('/delete', async (req, res, next) => {
     await Toppings.findByIdAndDelete(req.body.id)
+    res.redirect('..')
+})
+router.post('/delete-pizza', async (req, res, next) => {
+    await Pizzas.findByIdAndDelete(req.body.id)
     res.redirect('..')
 })
 

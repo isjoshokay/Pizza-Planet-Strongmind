@@ -35,6 +35,8 @@ const displayUpdatePizza = (e) => {
     // populate the fields of the view based on which pizza was clicked
     document.querySelector("#update-pizza-name").value = e.children[1].children[0].children[0].innerHTML
     document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
+    
+    document.querySelector("#delete-button").children[0].value = e.children[2].value
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
     populateToppings(e)
 }
@@ -65,15 +67,7 @@ const populateToppings = e => {
     })
 }
 
-// This is for creating a new pizza 
-const displayNewPizza = () => {
-    // Set the other two displays to none and display Create Pizza view. 
-    document.querySelector("#pizza-update-wrapper").style.display = "none"
-    document.querySelector("#initial-pizza-message-container").style.display = "none"
-    document.querySelector("#pizza-new-wrapper").style.display = "inline" 
-}
-
-// This is for adding and removing toppings from a pizza. (see above toppingsList var for more details)
+// This is for adding and removing toppings from a *new* pizza.
 let newToppingsList = [] 
 const addOrRemoveTopping = e => {
     //if it's selected, remove the topping name from newToppingsList and remove the 'selected' class
@@ -94,6 +88,14 @@ const addOrRemoveTopping = e => {
         console.log(e.children[0].value, 'was added to the pizza')
     }
 }
+// This is for creating a new pizza 
+const displayNewPizza = () => {
+    // Set the other two displays to none and display Create Pizza view. 
+    document.querySelector("#pizza-update-wrapper").style.display = "none"
+    document.querySelector("#initial-pizza-message-container").style.display = "none"
+    document.querySelector("#pizza-new-wrapper").style.display = "inline" 
+}
+
 
 
 
