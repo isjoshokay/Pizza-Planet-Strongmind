@@ -24,7 +24,8 @@
                                     </div>
                                 </div>
                                 <div><%= pizza.description %></div>
-                                <input type="hidden" class="selected-pizza" value=<%= pizza.toppings %>>
+                                <% let toppingsForUpdate = JSON.stringify(pizza.toppings.map(e => e.name))%>
+                                <input type="hidden" class="selected-pizza" value=<%= toppingsForUpdate %>>
                                 <div>
                                     <% pizza.toppings.slice(0, 4).map(e => { %>
                                         <div class="pizza-list-item-topping"><%= e.name %></div>

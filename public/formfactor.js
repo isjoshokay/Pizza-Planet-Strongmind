@@ -41,7 +41,20 @@ const displayUpdatePizza = (e) => {
 const setToppings = e => {
     let toppingsList = [] // This will be populated with all of the toppings the pizza has by name
     // the array will be appended to a hidden input for the form. 
-    console.log(e.children[1].children[2])
+    // parse through and remove 
+    let val = (e.children[1].children[2].value)
+    val = val.split(',')
+    val.map(e => {
+        let word = ''
+        for (let i = 0; i< e.length; i++){
+            if (e[i].toLowerCase() !== e[i].toUpperCase()) {
+                word += e[i]
+            }
+            
+        }
+        toppingsList.push(word)
+    })
+    console.log(toppingsList)
 }
 
 // This is for creating a new pizza 
