@@ -9,7 +9,8 @@ let pizzasModel = mongoose.model('pizzas', {
     },
     toppings: [{
         type: ObjectId,
-        ref: 'toppings'
+        ref: 'toppings',
+        required: true
     }],
     description: {
         type: String,

@@ -18,7 +18,32 @@ const setToppingImage = (type) => {
         return './images/basil.png'
     }
 }
+const setPizzaImg = () => {
+    // returns a random pizza image path. 
+    let randint = Math.floor(Math.random() * (6 - 1) + 1)
+    let imgPath
 
+    switch(randint) {
+        case 1:
+            imgPath = './images/pizza-cheese.png'
+            break;
+        case 2:
+            imgPath = './images/pizza-meaty.png'
+            break;
+        case 3:
+            imgPath = './images/pizza-pep-veg.webp'
+            break;
+        case 4:
+            imgPath = './images/pizza-tomatobasil.png'
+            break;
+        case 5:
+            imgPath = './images/pizza-vegetarian.png'
+            break;
+        default:
+           break
+    }
+    return imgPath
+}
 router.get('/', async (req, res, next) => {
     // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
     // depending on the type of user, a different page is rendered.
@@ -52,20 +77,43 @@ router.post('/submit-topping', async (req, res, next) => {
         })
         if (duplicate){
             console.log('Duplicate found!', duplicate)
-            throw new Error
+            throw new Error('A topping by that name already exists')
         } else {
             await Toppings.create(newTopping)
             res.redirect('..')
         }
     } catch(err) {
-        next(ErrorMessage.badRequest('A topping by that name already exists'))
+        next(ErrorMessage.badRequest(err))
     }
 })
-
 router.post('/submit-pizza', async (req, res, next) => {
-    console.log(req.body)
-})
+    try{
+        let formToppings = req.body.toppings.split(',')
+        let toppings = await Toppings.find()
+        // replacing topping name with its ID
+        let price = 0
+        const newPizza = {
+            name: req.body.name,
+            description: req.body.description,
+            img: setPizzaImg(),
+            users: req.user.id,
+            toppings: formToppings.map(topping => {
+                let id 
+                toppings.forEach(obj => {
+                    if (obj.name == topping){
+                        id = obj.id
+                        price += Number(obj.price)
+                    }})
+                return id}),
+            price: (price + 5.00).toFixed(2)}
+        // if duplicate, throw err, else add to newPizza to db. 
+        await Pizzas.create(newPizza)
+    } catch(err) {
+        next(ErrorMessage.badRequest(err))
+    }
+    
 
+})
 router.post('/update', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
     // the topping cannot be a duplicate of an entirely different topping (by id)

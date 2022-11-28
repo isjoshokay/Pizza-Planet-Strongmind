@@ -1,3 +1,7 @@
+/*
+Built by Joshua Peoples for for Strongmind
+*/
+
 // Import modules
 const express = require('express')
 const app = express()
