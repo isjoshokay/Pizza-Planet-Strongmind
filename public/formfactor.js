@@ -28,6 +28,7 @@ const closeModal = () => {
 // This is for editing a pizza only
 const displayUpdatePizza = (e) => {
     // Set the other two displays to none and display Update Pizza view. 
+    document.querySelector("#update-pizza-img").src = e.children[0].children[0].src
     document.querySelector("#pizza-update-wrapper").style.display = "inline"
     document.querySelector("#initial-pizza-message-container").style.display = "none"
     document.querySelector("#pizza-new-wrapper").style.display = "none"
