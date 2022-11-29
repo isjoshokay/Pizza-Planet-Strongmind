@@ -334,12 +334,13 @@ div > input, select {
     margin: 3%;
 }
 .pizza-list-item-image {
-    width: 100%;
+    max-width: 100%;
     padding-top: 4%;
+    align-items: center;
 }
 .pizza-list-item-image > img {
     height: 100%;
-    width: 100%;
+    max-width: 80%;
 }
 /* Max Chars: 90 for description, 21 for title (move price to next line), 10 for a topping*/
 .pizza-list-item-data {
