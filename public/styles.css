@@ -179,11 +179,11 @@ div > input, select {
     margin: 30px auto;
     width: 80%;
     border-radius: 8px;
-    max-height: 600px;
+    max-height: 70vh;
     background-color: rgba(98, 98, 165, 0.4);
     text-align: center;
     padding: 5px 10px 10px 10px;
-    min-width: 200px;
+    overflow: scroll;
 }
 .success-message {
     padding: 5px;
@@ -276,6 +276,22 @@ div > input, select {
     display: flex;
     align-items: center;
 }
+#pizza-view-header {
+    width: 15%;
+    margin: 2% auto;
+    height: 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#pizza-header-form>button, #pizza-view-header>button {
+    background-color: #bc1a1f;
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 50%;
+}
 
 #pizza-view-container {
     width: 85%;
@@ -284,13 +300,15 @@ div > input, select {
     border-radius: 10px;
     padding: 5px;
     font-family: 'Exo 2', sans-serif;
+    height: 80%;
 }
 #pizza-view-control {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 80vh;
+    height: 40em;
 }
 #pizza-list-wrapper {
+    width: 100%;
     margin: 5%;
     max-height: 95%;
     background: linear-gradient(#bc1a1f, #6d063f);
@@ -339,12 +357,15 @@ div > input, select {
 }
 #pizza-update-wrapper, #pizza-new-wrapper {
     width: 90%;
-    margin: 10% auto;
-    height: fit-content;
     background-color: rgba(5, 27, 105, 0.5);
-    border: 2px solid #870d51;
     border-radius: 10px;
     padding: 10px;
+    border: 2px solid #0f0d87;
+    margin: 5%;
+    background: linear-gradient(#6d063f,#1e1f4e);
+    box-shadow: 0px 5px 5px #1e1f4e;
+    font-size: .8em;
+
 }
   
 #pizza-update-metadata {
@@ -354,6 +375,9 @@ div > input, select {
 #pizza-update-photo>img {
     max-width: 100%;
 }
+#pizza-update-toppings {
+    height: 30%;
+}
 #pizza-update-actions, #pizza-new-actions {
     margin: auto;
     padding-top: 10px;
@@ -362,12 +386,17 @@ div > input, select {
 .available-topping, .available-topping-update {
     border: 1px dashed #bc1a1f;
     background-color: #870d51;
-    max-width: 8%;
-    height: 7%;
-    display: inline;
+    max-width: 10%;
+    height: 10%;
     margin: 3px;
     padding: 3px;
+    display: inline-flex;
 }
+#pizza-header-form>button:disabled{
+    background-color: rgba(5, 27, 105, 0.5);
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .available-topping:hover, .available-topping-update:hover{
     color: #13ab08;
     cursor: pointer;
@@ -377,12 +406,11 @@ div > input, select {
     background-color: #065400;
 }
 
-#delete-button {
-    width: 50%; 
-    text-align: center; 
-    margin: auto;
+@media (max-width: 90rem){
+    .item-content>img {
+        display: none;
+    }
 }
-
 #primary{
     background-color: #1e1f4e;
     width: 100px;

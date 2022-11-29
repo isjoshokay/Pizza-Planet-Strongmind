@@ -30,13 +30,13 @@ const displayUpdatePizza = (e) => {
     // Set the other two displays to none and display Update Pizza view. 
     document.querySelector("#pizza-update-wrapper").style.display = "inline"
     document.querySelector("#initial-pizza-message-container").style.display = "none"
-    document.querySelector("#pizza-new-wrapper").style.display = "none" 
+    document.querySelector("#pizza-new-wrapper").style.display = "none"
+    document.querySelector("#delete-button").disabled = false
 
     // populate the fields of the view based on which pizza was clicked
     document.querySelector("#update-pizza-name").value = e.children[1].children[0].children[0].innerHTML
     document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
-    
-    document.querySelector("#delete-button").children[0].value = e.children[2].value
+    document.querySelector("#pizza-header-form").children[0].value = e.children[2].value
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
     populateToppings(e)
 }
@@ -94,6 +94,8 @@ const displayNewPizza = () => {
     document.querySelector("#pizza-update-wrapper").style.display = "none"
     document.querySelector("#initial-pizza-message-container").style.display = "none"
     document.querySelector("#pizza-new-wrapper").style.display = "inline" 
+    document.querySelector("#delete-button").disabled = "true"
+
 }
 
 
