@@ -335,7 +335,7 @@ div > input, select {
     width: 95%;
     max-height: 160px;
     background-color: #262751;
-    margin: 3%;
+    margin: 3% auto;
 }
 .pizza-list-item-image {
     height: 8em;
