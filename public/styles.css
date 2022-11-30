@@ -373,8 +373,13 @@ div > input, select {
     display: grid;
     grid-template-columns: .8fr 1.2fr;
 }
-#pizza-update-photo>img {
+#pizza-update-photo {
+    display: flex;
     max-width: 100%;
+    text-align: center;
+}
+#pizza-update-photo>img {
+    max-width: 20em;
 }
 #pizza-update-toppings {
     height: 30%;

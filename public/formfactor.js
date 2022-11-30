@@ -34,6 +34,7 @@ const displayUpdatePizza = (e) => {
     document.querySelector("#delete-button").disabled = false
 
     // populate the fields of the view based on which pizza was clicked
+    document.querySelector("#update-pizza-img").src = e.children[0].children[0].src
     document.querySelector("#update-pizza-name").value = e.children[1].children[0].children[0].innerHTML
     document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
     document.querySelector("#pizza-header-form").children[0].value = e.children[2].value
