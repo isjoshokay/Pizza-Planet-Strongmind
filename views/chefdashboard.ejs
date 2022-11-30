@@ -34,7 +34,7 @@
                                     <% } %>
                                 </div> 
                             </div>
-                            <input type="hidden" value=<%= pizza.id %>>
+                            <input type="hidden" name="id" value=<%=pizza.id%>>
                         </div>
                     <% }) %>
                 </div>
@@ -68,11 +68,12 @@
                             <div class="available-topping-update" onclick="addOrRemoveTopping(this)">
                                 <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>
+                                <input type="hidden" name="id" id="update-pizza-id">
                             </div>
                         <% }) %>
                     </div>
                     <div id="pizza-update-actions">                     
-                        <button class="button" style="width:fit-content" disabled>Submit Changes</button>
+                        <button class="button" style="width:fit-content">Submit Changes</button>
                     </div>
                 </form>
                 <!-- BEGIN NEW PIZZA CONTAINER  -->

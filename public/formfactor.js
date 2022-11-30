@@ -37,7 +37,8 @@ const displayUpdatePizza = (e) => {
     document.querySelector("#update-pizza-img").src = e.children[0].children[0].src
     document.querySelector("#update-pizza-name").value = e.children[1].children[0].children[0].innerHTML
     document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
-    document.querySelector("#pizza-header-form").children[0].value = e.children[2].value
+    document.querySelector("#pizza-header-form").children[0].value = e.children[2].value // The ID of the pizza (for deleting)
+    document.querySelector("#update-pizza-id").value = e.children[2].value  // The ID of the pizza for updating
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
     populateToppings(e)
 }
@@ -68,8 +69,8 @@ const populateToppings = e => {
         }
     })
     toppingsToUpdate = toppingsList
+    document.querySelector("#update-toppings-on-pizza").value = toppingsToUpdate
 }
-
 // This is for adding and removing toppings from a *new* pizza.
 let newToppingsList = [] 
 const addOrRemoveTopping = e => {
