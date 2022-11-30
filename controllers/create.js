@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const Users = require('../models/users')
 const Toppings = require('../models/toppings')
 const Pizzas = require('../models/pizzas')
 const ErrorMessage = require('../Errors')
@@ -146,10 +145,40 @@ router.post('/update-pizza', async (req, res, next) => {
     try {
         req.body.toppings = req.body.toppings.split(',')
         req.body.id = req.body.id[0]
-        let toppings = await Toppings.find()
+        req.body.toppings.sort()
+        let allPizzas = await Pizzas.find().populate('toppings')
+        let allToppings = await Toppings.find()
         let price = 0
-        foundPizza = await Pizzas.findById(req.body.id)
-        if (!foundPizza) {
+        let foundPizza = false // for finding the pizza in the db to update
+        let duplicateToppings = false // for finding a pizza with the same topping.
+        // find the pizza, but also sort the toppings of each one so we can find duplicates by matching
+        allPizzas.forEach(pizza => {
+            let duplicateCount = 0
+            if (pizza.id == req.body.id){
+                foundPizza = pizza
+            }
+            pizza.toppings.sort((a, b) => a.name > b.name ? 1 : -1)
+                // if the pizza is not this one and the toppings are the same (length and names), throw an error. 
+                console.log(req.body.id, ' & ', pizza.id)
+                if (pizza.toppings.length == req.body.toppings.length && req.body.id != pizza.id){
+                    console.log('Two different pizzas but toppings match up: ', pizza.toppings.map(topping => topping.name), '\n', req.body.toppings)
+                    for (let i = 0; i<pizza.toppings.length; i++){
+                        if (pizza.toppings[i].name == req.body.toppings[i]){
+                            duplicateCount += 1
+                            continue
+                        } else {
+                            duplicateToppings = false
+                            break
+                        }
+                    }
+                }
+                if (duplicateCount == req.body.toppings.length){
+                    duplicateToppings = true
+                }
+        })
+        if (duplicateToppings){
+            throw new Error('There is already a pizza with this combination of toppings.')
+        } else if (!foundPizza) {
             throw new Error('This pizza no longer exists')
         } else {
             //duplicate name logic and toppings list check here
@@ -158,7 +187,6 @@ router.post('/update-pizza', async (req, res, next) => {
             })
             if (duplicateByName){
                 if (duplicateByName.id != req.body.id) {
-                    console.log('Duplicate found!', duplicateByName)
                     throw new Error('A pizza by this name already exists.')
                 }
             }
@@ -166,7 +194,7 @@ router.post('/update-pizza', async (req, res, next) => {
                 name: req.body.name,
                 toppings: req.body.toppings.map(topping => {
                     let id 
-                    toppings.forEach(obj => {
+                    allToppings.forEach(obj => {
                         if (obj.name == topping){
                             id = obj.id
                             price += Number(obj.price)
@@ -176,6 +204,7 @@ router.post('/update-pizza', async (req, res, next) => {
                 price: (price + 5.00).toFixed(2),
                 users: req.user.id
             })
+            res.redirect('..')
         }
     } catch(err){
         next(ErrorMessage.badRequest(err))
