@@ -41,6 +41,7 @@ const displayUpdatePizza = (e) => {
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
     populateToppings(e)
 }
+let toppingsToUpdate
 const populateToppings = e => {
     //unselect everything from the previously clicked element
     document.querySelectorAll(".selected").forEach(topping => {
@@ -66,27 +67,39 @@ const populateToppings = e => {
             topping.classList.toggle("selected")
         }
     })
+    toppingsToUpdate = toppingsList
 }
 
 // This is for adding and removing toppings from a *new* pizza.
 let newToppingsList = [] 
 const addOrRemoveTopping = e => {
-    //if it's selected, remove the topping name from newToppingsList and remove the 'selected' class
-    if (e.classList.contains("selected")){
-        e.classList.toggle("selected")
-        let itemIdx = newToppingsList.indexOf(e.children[0].value)
-        if (itemIdx !== -1) {
-            newToppingsList.splice(itemIdx, 1);
+    if (e.classList.contains("available-topping-update")){
+        console.log(toppingsToUpdate)
+        //if it's selected, remove the topping name from toppingsToUpdate and remove the 'selected' class
+        if (e.classList.contains("selected")){
+            e.classList.toggle("selected")
+            let itemIdx = toppingsToUpdate.indexOf(e.children[0].value)
+            if (itemIdx !== -1) {
+                toppingsToUpdate.splice(itemIdx, 1);
+            }
+            document.querySelector("#update-toppings-on-pizza").value = toppingsToUpdate
+        } else {
+
         }
-        document.querySelector("#new-toppings-on-pizza").value = newToppingsList
-        console.log(newToppingsList)
-        console.log(e.children[0].value, 'was removed from the pizza')
-    } else {
-        e.classList.toggle("selected")
-        newToppingsList.push(e.children[0].value)
-        document.querySelector("#new-toppings-on-pizza").value = newToppingsList
-        console.log(newToppingsList)
-        console.log(e.children[0].value, 'was added to the pizza')
+    } else if (e.classList.contains("available-topping")) {
+        //if it's selected, remove the topping name from newToppingsList and remove the 'selected' class
+        if (e.classList.contains("selected")){
+            e.classList.toggle("selected")
+            let itemIdx = newToppingsList.indexOf(e.children[0].value) // the topping name
+            if (itemIdx !== -1) {
+                newToppingsList.splice(itemIdx, 1);
+            }
+            document.querySelector("#new-toppings-on-pizza").value = newToppingsList
+        } else {
+            e.classList.toggle("selected")
+            newToppingsList.push(e.children[0].value)
+            document.querySelector("#new-toppings-on-pizza").value = newToppingsList
+        }
     }
 }
 // This is for creating a new pizza 

@@ -49,8 +49,6 @@
                     <div id="pizza-update-metadata">
                         <div id="pizza-update-photo">
                             <img id="update-pizza-img">
-                            <div style="margin: auto; width: 80%; text-align: center;">
-                            </div>
                         </div>
                         <div id="pizza-update-forminputs">
                             <div>
@@ -65,7 +63,7 @@
                     </div>
                     <div id="pizza-update-toppings">  
                         <h3>Update Toppings</h3>
-                        <input type="hidden" id="update-toppings-on-pizza">
+                        <input type="hidden" id="update-toppings-on-pizza" name="toppings">
                         <% toppings.map(topping => { %>
                             <div class="available-topping-update" onclick="addOrRemoveTopping(this)">
                                 <!-- // the name is to be placed inside newToppingsList for processing, it is not submitted in the form.-->
