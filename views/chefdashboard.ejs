@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <!-- BEGIN RIGHT SIDE OF PAGE, STARTING WITH UPDATE PIZZA VIEW -->
-                <form id="pizza-update-wrapper" style="display: none;">
+                <form action="/create/update-pizza" method="POST" id="pizza-update-wrapper" style="display: none;">
                     <div id="pizza-update-metadata">
                         <div id="pizza-update-photo">
                             <img id="update-pizza-img">
@@ -66,13 +66,12 @@
                         <input type="hidden" id="update-toppings-on-pizza" name="toppings">
                         <% toppings.map(topping => { %>
                             <div class="available-topping-update" onclick="addOrRemoveTopping(this)">
-                                <!-- // the name is to be placed inside newToppingsList for processing, it is not submitted in the form.-->
                                 <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>
                             </div>
                         <% }) %>
                     </div>
-                    <div id="pizza-update-actions">                        
+                    <div id="pizza-update-actions">                     
                         <button class="button" style="width:fit-content">Submit Changes</button>
                     </div>
                 </form>
@@ -95,7 +94,6 @@
                         <input type="hidden" id="new-toppings-on-pizza" name="toppings">
                         <% toppings.map(topping => { %>
                             <div class="available-topping" onclick="addOrRemoveTopping(this)">
-                                <!-- // the name is to be placed inside newToppingsList for server side processing, it is not submitted in the form.-->
                                 <input type="hidden" value=<%=topping.name%>>
                                 <%=topping.name%>
                             </div>

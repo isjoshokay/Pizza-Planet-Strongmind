@@ -16,6 +16,10 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+textarea {
+    font-family: 'Exo 2', sans-serif;
+}
+
 h2, h3 {
     font-family: 'Audiowide', cursive;
     cursor: default;
