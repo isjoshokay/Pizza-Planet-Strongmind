@@ -56,6 +56,9 @@ router.get('/', async (req, res, next) => {
 })
 router.post('/submit-topping', async (req, res, next) => {
     try{
+        // Change spaces to dashes and remove trailing spaces
+        req.body.name = req.body.name.replace(/\s+$/, '').replace(/ /g, '-')
+        
         const newTopping = {
             name: req.body.name,
             type: req.body.type,
@@ -125,6 +128,8 @@ router.post('/update', async (req, res, next) => {
                 }
             } 
             console.log(req.body)
+            // Fill spaces with dashes
+            req.body.name = req.body.name.replace(/ /g, '-')
             await Toppings.findByIdAndUpdate(req.body.id, {
                 name: req.body.name,
                 type: req.body.type,
