@@ -406,6 +406,11 @@ div > input, select {
     background-color: rgba(5, 27, 105, 0.5);
     color: rgba(255, 255, 255, 0.4);
 }
+button:disabled{
+    background-color: rgba(5, 27, 105, 0.5);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
 
 .available-topping:hover, .available-topping-update:hover{
     color: #13ab08;

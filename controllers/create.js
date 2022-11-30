@@ -82,6 +82,7 @@ router.post('/submit-topping', async (req, res, next) => {
     }
 })
 router.post('/submit-pizza', async (req, res, next) => {
+    console.log(req.body)
     try{
         let formToppings = req.body.toppings.split(',')
         let toppings = await Toppings.find()
