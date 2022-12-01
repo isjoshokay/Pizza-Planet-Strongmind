@@ -26,6 +26,8 @@ Finally, run the software by typing `npm run dev`. This is setup using the nodem
 ### Models and Attributes 
 [Back to top](#overview) 
 
+I want to add the image fields for these data models are randomly selected. For toppings, they're chosen based on type. Pizzas is 100% random, but I didn't want to go image-less, that's ug. 
+
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific user record. 
 - `String` username: The name that the user chose to create when they signed up. *(jpeoples)* 
@@ -99,4 +101,4 @@ I mostly used these colors and slight variations where applicable.
 ### Misc
 [Back to top](#overview) 
 > Note there is an 'Admin Key' that pops up when trying to create a 'new user - owner.' This admin key is arbitrary and you can put in any input and it will work. Just a proof of concept. 
-> There are additional features scattered throughout the system. My favorite to work on was the logic for duplicate toppings in pizzas. But also, creating the 'are you sure' modals for deleting toppings was a clever touch in my book *pat pat*. 
+> There are additional features scattered throughout the system. My favorite to work on was the logic for duplicate toppings in pizzas. But also, creating the 'are you sure' modals for deleting toppings was a clever touch in my book *pat pat*.  
