@@ -82,9 +82,38 @@ router.post('/submit-topping', async (req, res, next) => {
 })
 router.post('/submit-pizza', async (req, res, next) => {
     try{
+        req.body.name = req.body.name.trim() // removes trailing whitespace
         let formToppings = req.body.toppings.split(',')
+        formToppings.sort()
         let toppings = await Toppings.find()
-        // replacing topping name with its ID
+        let allPizzas = await Pizzas.find().populate('toppings')
+        let duplicateByName = false
+        allPizzas.forEach(pizza => {
+            let duplicateCount = 0
+            if (req.body.name.toLowerCase() == pizza.name.toLowerCase()){
+                duplicateByName = true
+            }
+            pizza.toppings.sort((a, b) => a.name > b.name ? 1 : -1)
+            // if the toppings are the same (length and names), throw an error. 
+            if (pizza.toppings.length == formToppings.length){
+                console.log('Two different pizzas but toppings length match up: ', pizza.toppings.map(topping => topping.name), '\n', req.body.toppings)
+                for (let i = 0; i<pizza.toppings.length; i++){
+                    if (pizza.toppings[i].name == formToppings[i]){
+                        console.log("same topping")
+                        duplicateCount += 1
+                        continue
+                    } else {
+                        break
+                    }
+                }
+            }
+            if (duplicateCount == formToppings.length){
+                throw new Error('There is already a pizza with this combination of toppings')
+            }
+        })
+        if (duplicateByName){
+            throw new Error('A pizza by that name already exists.')
+        }
         let price = 0
         const newPizza = {
             name: req.body.name,
@@ -150,7 +179,6 @@ router.post('/update-pizza', async (req, res, next) => {
         let allToppings = await Toppings.find()
         let price = 0
         let foundPizza = false // for finding the pizza in the db to update
-        let duplicateToppings = false // for finding a pizza with the same topping.
         // find the pizza, but also sort the toppings of each one so we can find duplicates by matching
         allPizzas.forEach(pizza => {
             let duplicateCount = 0
@@ -173,15 +201,20 @@ router.post('/update-pizza', async (req, res, next) => {
                     }
                 }
                 if (duplicateCount == req.body.toppings.length){
-                    duplicateToppings = true
+                    throw new Error('There is already a pizza with this combination of toppings.')
                 }
         })
-        if (duplicateToppings){
-            throw new Error('There is already a pizza with this combination of toppings.')
-        } else if (!foundPizza) {
+        let duplicateByName = await Pizzas.findOne({
+            name: req.body.name
+        })
+        if (duplicateByName){
+            if (duplicateByName.id != req.body.id) {
+                throw new Error('A pizza by this name already exists.')
+            }
+        }
+        if (!foundPizza) {
             throw new Error('This pizza no longer exists')
         } else {
-            //duplicate name logic and toppings list check here
             let duplicateByName = await Pizzas.findOne({
                 name: req.body.name
             })
