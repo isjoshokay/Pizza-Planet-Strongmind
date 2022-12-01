@@ -38,8 +38,7 @@ const setPizzaImg = () => {
 // render the create a topping page for Owner view
 router.get('/', async (req, res, next) => {
     try {
-        // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
-        // depending on the type of user, a different page is rendered.
+        // this is mostly just for toppings. 
         if (req.isAuthenticated()){
             const toppings = await Toppings.find()
             // const pizzas = await Pizzas.find()
@@ -84,9 +83,10 @@ router.post('/submit-topping', async (req, res, next) => {
 // Creating a new pizza
 router.post('/submit-pizza', async (req, res, next) => {
     try{
+        // These lines prepare the body so that it's ready to be sent to the db
         req.body.name = req.body.name.trim() // removes trailing whitespace
-        let formToppings = req.body.toppings.split(',')
-        formToppings.sort()
+        let formToppings = req.body.toppings.split(',') // the toppings come in as one string, but each word is separated by commas
+        formToppings.sort() 
         let toppings = await Toppings.find()
         let allPizzas = await Pizzas.find().populate('toppings')
         let duplicateByName = false
@@ -141,6 +141,7 @@ router.post('/update', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
     // the topping cannot be a duplicate of an entirely different topping (by id)
     try{
+        req.body.price = Number(req.body.price).toFixed(2)
         foundTopping = await Toppings.findById(req.body.id)
         if (!foundTopping) {
             throw new Error('The topping no longer exists')
