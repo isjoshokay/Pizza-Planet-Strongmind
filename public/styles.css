@@ -237,8 +237,15 @@ div > input, select {
     margin: 0 5px;
     cursor: pointer;
 }
-
-.modal-container {
+.edit-topping:hover{
+    color: #1e1f4e;
+    cursor: pointer;
+}
+.delete-topping:hover {
+    color: #bc1a1f;
+    cursor: pointer;
+}
+.modal-container, .modal-container-delete {
      /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -249,8 +256,8 @@ div > input, select {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-.modal-content {
+}
+.modal-content, .modal-content-delete {
     border: 1px solid white;
     border-radius: 8px;
     width: 40%;

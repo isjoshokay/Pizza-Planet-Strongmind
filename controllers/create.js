@@ -35,29 +35,35 @@ const setPizzaImg = () => {
     }
     return selectedImg
 }
+// render the create a topping page for Owner view
 router.get('/', async (req, res, next) => {
-    // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
-    // depending on the type of user, a different page is rendered.
-    if (req.isAuthenticated()){
-        const toppings = await Toppings.find()
-        // const pizzas = await Pizzas.find()
-        if (req.user.permissions == 'Owner'){
-            // Owner needs read+write access to toppings and read access to pizzas.
-            res.render('create', {user: req.user, title: 'Create'})
-        } else if (req.user.permissions == 'Chef'){
-            // Chef needs read access to toppings and read+write access to pizzas. 
-            console.log(toppings)
-            res.render('create-pizza', {user:req.user, toppings: toppings})
+    try {
+        // In order to access this page, the user must be authenticated. That user's data will be passed to the template. 
+        // depending on the type of user, a different page is rendered.
+        if (req.isAuthenticated()){
+            const toppings = await Toppings.find()
+            // const pizzas = await Pizzas.find()
+            if (req.user.permissions == 'Owner'){
+                // Owner needs read+write access to toppings and read access to pizzas.
+                res.render('create', {user: req.user, title: 'Create'})
+            } else if (req.user.permissions == 'Chef'){
+                // Chef needs read access to toppings and read+write access to pizzas. 
+                console.log(toppings)
+                res.render('create-pizza', {user:req.user, toppings: toppings})
+            }
+        } else {
+            res.redirect('/create')
         }
-    } else {
-        res.redirect('/create')
+    } catch(err){
+        next(ErrorMessage.badRequest(err))
     }
 })
+// Creating a new topping
 router.post('/submit-topping', async (req, res, next) => {
     try{
-        // Change spaces to dashes and remove trailing spaces
+        // Change spaces to dashes and remove trailing spaces while we're at it
         req.body.name = req.body.name.replace(/\s+$/, '').replace(/ /g, '-')
-        
+        req.body.price = Number(req.body.price).toFixed(2)
         const newTopping = {
             name: req.body.name,
             type: req.body.type,
@@ -80,6 +86,7 @@ router.post('/submit-topping', async (req, res, next) => {
         next(ErrorMessage.badRequest(err))
     }
 })
+// Creating a new pizza
 router.post('/submit-pizza', async (req, res, next) => {
     try{
         req.body.name = req.body.name.trim() // removes trailing whitespace
@@ -136,6 +143,7 @@ router.post('/submit-pizza', async (req, res, next) => {
         next(ErrorMessage.badRequest(err))
     }
 })
+// Update a topping's data
 router.post('/update', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
     // the topping cannot be a duplicate of an entirely different topping (by id)
@@ -170,6 +178,7 @@ router.post('/update', async (req, res, next) => {
     }
     
 })
+// update a pizza's data
 router.post('/update-pizza', async (req, res, next) => {
     try {
         req.body.name = req.body.name.trim() // removes trailing whitespace
@@ -180,8 +189,7 @@ router.post('/update-pizza', async (req, res, next) => {
         let allToppings = await Toppings.find()
         let price = 0
         let foundPizza = false // for finding the pizza in the db to update
-        let duplicateByName = false
-        // find the pizza, but also sort the toppings of each one so we can find duplicates by matching
+        // find the pizza, but also sort the toppings of each one so we can find duplicates by matching, as well as finding duplicate by name
         allPizzas.forEach(pizza => {
             let duplicateCount = 0
             if (pizza.id == req.body.id){
@@ -242,10 +250,12 @@ router.post('/update-pizza', async (req, res, next) => {
         next(ErrorMessage.badRequest(err))
     }
 })
+// delete a topping
 router.post('/delete', async (req, res, next) => {
     await Toppings.findByIdAndDelete(req.body.id)
     res.redirect('..')
 })
+// delete a pizza
 router.post('/delete-pizza', async (req, res, next) => {
     await Pizzas.findByIdAndDelete(req.body.id)
     res.redirect('..')

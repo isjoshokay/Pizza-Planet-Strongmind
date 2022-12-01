@@ -18,8 +18,14 @@
             </div>
         </div>
         <div class="item-list-container">
-            
             <% data.map(e => {%>
+                <% let numOfPizzas = 0 %>
+                <% pizzas.forEach(pizza => { %>
+                    <% let found = pizza.toppings.find(topping => topping.name == e.name) %>
+                    <% if (found){ %>
+                        <% numOfPizzas ++ %>
+                    <% } %>
+                <% }) %>
                 <div class="item-data">
                     <div class="item-content">
                         <img src=<%=e.img %> alt="">
@@ -37,17 +43,18 @@
                         <%= e.users.username %>
                     </div>
                     <div class="item-content content-body">
-                        <div onclick="displayModal(this)" style="display: inline">
-                            <i class="fa-regular fa-pen-to-square"></i>
+                        <div onclick="displayModal(this)" style="display: inline; font-size: 1.2rem;">
+                            <i class="fa-regular fa-pen-to-square edit-topping"></i>
                             <p style="display: none" class="update-topping-id-values"><%= e.id %></p>
                             <input type="hidden" value=<%=e.name%>>
                             <input type="hidden" value=<%=e.type%>>
                             <input type="hidden" value=<%=e.price%>>
                         </div>
-                        <form action="/create/delete" method="POST"class="action-button">
-                            <input type="hidden" name="id" value=<%= e.id %>>
-                            <button type="submit" style="background: none; border: none; color: white; font-size: 1rem;"><i class="fa-solid fa-trash-can"></i></button>
-                        </form>
+                        <input type="hidden" name="id" value=<%= e.id %>>
+                        <button class="delete-topping" onclick="displayDeleteModal(this)" style="background: none; border: none; color: white; font-size: 1.2rem;">
+                            <i class="fa-solid fa-trash-can delete-topping"></i>
+                            <input type="hidden" value=<%=numOfPizzas%>>
+                        </button>
                     </div>
                 </div>
             <%}) %>
@@ -77,6 +84,20 @@
                         <input type="hidden" name="users" id="update-topping-createdby" value=<%= user.username %>>
                         <input type="hidden" name="id" id="update-topping-id">
                         <button class="button" type="submit">Submit Changes</button>
+                    </form>
+            </div>
+        </div>
+        <!-- The below is for deleting a topping that is linked to pizzas. -->
+        <div class="modal-container-delete" style="display: none">
+            <div class="modal-content-delete">
+                <div class="back-button" onclick="closeModal()">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                    <h2>You sure?</h2>
+                    <div id="delete-modal-content"></div>
+                    <form action="/create/delete" method="POST">
+                        <input type="hidden" name="id" id="delete-topping-id">
+                        <button class="button" type="submit">Yes</button>
                     </form>
             </div>
         </div>

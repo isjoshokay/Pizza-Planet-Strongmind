@@ -11,12 +11,12 @@ router.get('/', async (req, res, next) => {
     // Depending on the type of user, a different page is rendered.
     try {
     if (req.isAuthenticated()){
-        let toppings = await Toppings.find().populate('users')
+        let toppings = await Toppings.find().populate('users').sort({type: -1})
+        let pizzas = await Pizzas.find().populate('toppings').populate('users')
         if (req.user.permissions == 'Owner'){
-            res.render('dashboard', {user: req.user, title: 'All Toppings', data: toppings})
+            res.render('dashboard', {user: req.user, title: 'Cosmic Toppings', data: toppings, pizzas: pizzas})
         } else if (req.user.permissions == 'Chef'){
-            let pizzas = await Pizzas.find().populate('toppings').populate('users')
-            res.render('chefdashboard', {user: req.user, title: 'All Pizzas', toppings: toppings, pizzas: pizzas})
+            res.render('chefdashboard', {user: req.user, title: 'Galactic Pizzas', toppings: toppings, pizzas: pizzas})
         }
     } else {
         res.redirect('/')

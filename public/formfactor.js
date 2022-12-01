@@ -21,9 +21,23 @@ const displayModal = (e) => {
     document.querySelector("#update-topping-id").value = e.children[1].innerHTML
     document.querySelector(".modal-container").style.display = "inline"
 }
+// This displays the delete modal. The content of the modal depends on if there are any dependencies. 
+const displayDeleteModal = (e) => {
+    document.querySelector("#delete-topping-id").value = e.parentElement.children[1].value
+    document.querySelector(".modal-container-delete").style.display = "inline"
+    if (e.children[1].value > 1) {
+        message = `Deleting this topping will affect ${e.children[1].value} pizzas.`
+    } else if (e.children[1].value == 1) {
+        message = `Deleting this topping will affect ${e.children[1].value} pizza.`
+    } else {
+        message = `There are no pizzas with this topping.`
+    }
+    document.querySelector("#delete-modal-content").innerHTML = message
+}
 //This closes the modal
 const closeModal = () => {
     document.querySelector(".modal-container").style.display = "none"
+    document.querySelector(".modal-container-delete").style.display = "none"
 }
 // This is for editing a pizza only
 const displayUpdatePizza = (e) => {
