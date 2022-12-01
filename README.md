@@ -90,9 +90,9 @@ I mostly used these colors and slight variations where applicable.
 
 ### Views  
 > Login - The first page a user will see when trying to get into this system. If a user is not authenticated, they will be redirected here.
-- There is a form with Username and Password Inputs, a 'type' dropdown, and 'create account' and 'submit' buttons.
-- Clicking 'create user' opens up the 'type' dropdown for selecting 'owner' or 'chef'.
+- There is a form with Username and Password Inputs, and 'create account' and 'submit' buttons.
 - Incorrect login credentials redirect you to the **Error** view. 
+- Clicking 'create user' renders 'newuser' page for adding your name, creating a user and passphrase, and selecting 'owner' or 'chef'.
 
 > Dashboard - Once a user is authenticated, this is the page they are led into. Depending on the type of user, this page will look a little different. 
 - A user of type 'chef' will have a button that says 'new pizza', and they can see all of the pizzas that have been made for customers to choose from. 
@@ -106,7 +106,7 @@ I mostly used these colors and slight variations where applicable.
 - Before submitting the form, if there is already a record of the topping or pizza, then the user is redirected to the **Error** page. This includes duplicates by name, and if you're talking pizza, then it even checks for duplicate topping combinations--that's the same pizza! 
 
 > Error - This is a page that is rendered when any of the above mentioned views encounters an issue. 
-- This page describes the issue and provides a button to redirect the user back to the previous page to correct the issue. 
+- This page describes the issue and provides a button to redirect the user back to the previous page. 
 
 ### Misc
 [Back to top](#overview) 
