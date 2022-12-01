@@ -40,7 +40,6 @@ router.get('/', async (req, res, next) => {
     try {
         // this is mostly just for toppings. 
         if (req.isAuthenticated()){
-            const toppings = await Toppings.find()
             // const pizzas = await Pizzas.find()
             if (req.user.permissions == 'Owner'){
                 // Owner needs read+write access to toppings and read access to pizzas.

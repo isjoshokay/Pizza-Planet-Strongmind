@@ -1,5 +1,5 @@
 /*
-Built by Joshua Peoples for for Strongmind
+Built by Joshua Peoples for Strongmind
 */
 
 // Import modules
