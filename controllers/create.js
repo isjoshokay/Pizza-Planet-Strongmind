@@ -46,9 +46,6 @@ router.get('/', async (req, res, next) => {
             if (req.user.permissions == 'Owner'){
                 // Owner needs read+write access to toppings and read access to pizzas.
                 res.render('create', {user: req.user, title: 'Create'})
-            } else if (req.user.permissions == 'Chef'){
-                // Chef needs read access to toppings and read+write access to pizzas. 
-                res.render('create-pizza', {user:req.user, toppings: toppings})
             }
         } else {
             res.redirect('/create')
