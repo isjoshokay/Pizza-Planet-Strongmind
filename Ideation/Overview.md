@@ -26,7 +26,7 @@ Finally, run the software by typing `npm run dev`. This is setup using the nodem
 ### Models and Attributes 
 [Back to top](#overview) 
 
-I want to add the image fields for these data models are randomly selected. For toppings, they're chosen based on type. Pizzas is 100% random, but I didn't want to go image-less, that's ug. 
+The image fields for these data models are randomly selected. For toppings, they're chosen based on type. Pizzas is 100% random, but I didn't want to go image-less, that's ug. 
 
 > Users - All of the people who will use this interface. This is exclusive to employees so there will need to be authentication. Duplicate users cannot exist. 
 - `String` id: The unique ID created by the DBMS to identify a specific user record. 
