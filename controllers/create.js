@@ -231,9 +231,9 @@ router.post('/update-pizza/:id', async (req, res, next) => {
                 price: (price + 5.00).toFixed(2),
                 users: req.user.id
             })
-            
+            console.log('redirecting')
+            res.redirect('/')
         }
-        res.redirect('..')
     } catch(err){
         next(ErrorMessage.badRequest(err))
     }
