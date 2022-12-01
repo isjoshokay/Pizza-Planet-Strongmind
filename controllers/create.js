@@ -48,7 +48,6 @@ router.get('/', async (req, res, next) => {
                 res.render('create', {user: req.user, title: 'Create'})
             } else if (req.user.permissions == 'Chef'){
                 // Chef needs read access to toppings and read+write access to pizzas. 
-                console.log(toppings)
                 res.render('create-pizza', {user:req.user, toppings: toppings})
             }
         } else {
@@ -76,7 +75,6 @@ router.post('/submit-topping', async (req, res, next) => {
             name: newTopping.name
         })
         if (duplicate){
-            console.log('Duplicate found!', duplicate)
             throw new Error('A topping by that name already exists')
         } else {
             await Toppings.create(newTopping)
@@ -103,10 +101,8 @@ router.post('/submit-pizza', async (req, res, next) => {
             pizza.toppings.sort((a, b) => a.name > b.name ? 1 : -1)
             // if the toppings are the same (length and names), throw an error. 
             if (pizza.toppings.length == formToppings.length){
-                console.log('Two different pizzas but toppings length match up: ', pizza.toppings.map(topping => topping.name), '\n', req.body.toppings)
                 for (let i = 0; i<pizza.toppings.length; i++){
                     if (pizza.toppings[i].name == formToppings[i]){
-                        console.log("same topping")
                         duplicateCount += 1
                         continue
                     } else {
@@ -157,11 +153,9 @@ router.post('/update', async (req, res, next) => {
             })
             if (duplicateByName){
                 if (duplicateByName.id != req.body.id) {
-                    console.log('Duplicate found!', duplicateByName)
                     throw new Error('A topping by that name already exists')
                 }
             }
-            console.log(req.body)
             // Fill spaces with dashes
             req.body.name = req.body.name.replace(/ /g, '-')
             await Toppings.findByIdAndUpdate(req.body.id, {
@@ -202,9 +196,7 @@ router.post('/update-pizza', async (req, res, next) => {
             }
             pizza.toppings.sort((a, b) => a.name > b.name ? 1 : -1)
                 // if the pizza is not this one and the toppings are the same (length and names), throw an error. 
-                console.log(req.body.id, ' & ', pizza.id)
                 if (pizza.toppings.length == req.body.toppings.length && req.body.id != pizza.id){
-                    console.log('Two different pizzas but toppings match up: ', pizza.toppings.map(topping => topping.name), '\n', req.body.toppings)
                     for (let i = 0; i<pizza.toppings.length; i++){
                         if (pizza.toppings[i].name == req.body.toppings[i]){
                             duplicateCount += 1
