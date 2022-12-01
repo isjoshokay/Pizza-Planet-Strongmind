@@ -75,7 +75,7 @@ const populateToppings = e => {
     val.map(e => {
         let word = ''
         for (let i = 0; i< e.length; i++){
-            if (e[i].toLowerCase() !== e[i].toUpperCase()) {
+            if ((e[i].toLowerCase() !== e[i].toUpperCase()) || e[i] == '-') {
                 word += e[i]
             }
         }
