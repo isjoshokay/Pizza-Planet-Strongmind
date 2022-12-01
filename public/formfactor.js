@@ -56,6 +56,7 @@ const displayUpdatePizza = (e) => {
     document.querySelector("#pizza-header-form").children[0].value = e.children[2].value // The ID of the pizza (for deleting)
     document.querySelector("#update-pizza-id").value = e.children[2].value  // The ID of the pizza for updating
 
+    document.querySelector("#pizza-update-wrapper").action = "/create/update-pizza/"
     document.querySelector("#pizza-update-wrapper").action+= document.querySelector("#update-pizza-id").value // sets the ID for the request parameter
     console.log(document.querySelector("#pizza-update-wrapper").action)
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
