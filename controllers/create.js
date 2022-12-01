@@ -137,7 +137,7 @@ router.post('/submit-pizza', async (req, res, next) => {
     }
 })
 // Update a topping's data
-router.post('/update', async (req, res, next) => {
+router.post('/update/:id', async (req, res, next) => {
     // find topping and check to see if it exists. If it does, hydrate the create page with the data of that topping
     // the topping cannot be a duplicate of an entirely different topping (by id)
     try{
@@ -150,13 +150,13 @@ router.post('/update', async (req, res, next) => {
                 name: req.body.name
             })
             if (duplicateByName){
-                if (duplicateByName.id != req.body.id) {
+                if (duplicateByName.id != req.params.id) {
                     throw new Error('A topping by that name already exists')
                 }
             }
             // Fill spaces with dashes
             req.body.name = req.body.name.replace(/ /g, '-')
-            await Toppings.findByIdAndUpdate(req.body.id, {
+            await Toppings.findByIdAndUpdate(req.params.id, {
                 name: req.body.name,
                 type: req.body.type,
                 price: req.body.price,
@@ -168,7 +168,6 @@ router.post('/update', async (req, res, next) => {
     } catch(err) {
         next(ErrorMessage.badRequest(err))
     }
-    
 })
 // update a pizza's data
 router.post('/update-pizza', async (req, res, next) => {

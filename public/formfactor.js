@@ -19,6 +19,8 @@ const displayModal = (e) => {
     document.querySelector("#update-topping-type").value = e.children[3].value
     document.querySelector("#update-topping-price").value = e.children[4].value
     document.querySelector("#update-topping-id").value = e.children[1].innerHTML
+    document.querySelector("#update-topping").action+= document.querySelector("#update-topping-id").value
+    console.log(document.querySelector("#update-topping"))
     document.querySelector(".modal-container").style.display = "inline"
 }
 // This displays the delete modal. The content of the modal depends on if there are any dependencies. 
