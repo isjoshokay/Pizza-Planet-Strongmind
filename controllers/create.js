@@ -170,7 +170,7 @@ router.post('/update/:id', async (req, res, next) => {
     }
 })
 // update a pizza's data
-router.post('/update-pizza', async (req, res, next) => {
+router.post('/update-pizza/:id', async (req, res, next) => {
     try {
         req.body.name = req.body.name.trim() // removes trailing whitespace
         req.body.toppings = req.body.toppings.split(',')
@@ -183,17 +183,17 @@ router.post('/update-pizza', async (req, res, next) => {
         // find the pizza, but also sort the toppings of each one so we can find duplicates by matching, as well as finding duplicate by name
         allPizzas.forEach(pizza => {
             let duplicateCount = 0
-            if (pizza.id == req.body.id){
+            if (pizza.id == req.params.id){
                 foundPizza = pizza
             }
             if (req.body.name.toLowerCase() == pizza.name.toLowerCase()){
-                if (pizza.id != req.body.id){
+                if (pizza.id != req.params.id){
                     throw new Error('A pizza by this name already exists. You cannot edit a pizza to be the same name.')
                 }
             }
             pizza.toppings.sort((a, b) => a.name > b.name ? 1 : -1)
                 // if the pizza is not this one and the toppings are the same (length and names), throw an error. 
-                if (pizza.toppings.length == req.body.toppings.length && req.body.id != pizza.id){
+                if (pizza.toppings.length == req.body.toppings.length && req.params.id != pizza.id){
                     for (let i = 0; i<pizza.toppings.length; i++){
                         if (pizza.toppings[i].name == req.body.toppings[i]){
                             duplicateCount += 1
@@ -211,15 +211,13 @@ router.post('/update-pizza', async (req, res, next) => {
         if (!foundPizza) {
             throw new Error('This pizza no longer exists')
         } else {
-            let duplicateByName = await Pizzas.findOne({
-                name: req.body.name
-            })
+            let duplicateByName = allPizzas.find(pizza => pizza.name == req.body.name)
             if (duplicateByName){
-                if (duplicateByName.id != req.body.id) {
+                if (duplicateByName.id != req.params.id) {
                     throw new Error('A pizza by this name already exists.')
                 }
             }
-            await Pizzas.findByIdAndUpdate(req.body.id, {
+            await Pizzas.findByIdAndUpdate(req.params.id, {
                 name: req.body.name,
                 toppings: req.body.toppings.map(topping => {
                     let id 
@@ -233,8 +231,9 @@ router.post('/update-pizza', async (req, res, next) => {
                 price: (price + 5.00).toFixed(2),
                 users: req.user.id
             })
-            res.redirect('..')
+            
         }
+        res.redirect('..')
     } catch(err){
         next(ErrorMessage.badRequest(err))
     }

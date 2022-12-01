@@ -55,6 +55,9 @@ const displayUpdatePizza = (e) => {
     document.querySelector("#update-pizza-description").value = e.children[1].children[1].innerHTML
     document.querySelector("#pizza-header-form").children[0].value = e.children[2].value // The ID of the pizza (for deleting)
     document.querySelector("#update-pizza-id").value = e.children[2].value  // The ID of the pizza for updating
+
+    document.querySelector("#pizza-update-wrapper").action+= document.querySelector("#update-pizza-id").value // sets the ID for the request parameter
+    console.log(document.querySelector("#pizza-update-wrapper").action)
     // for separation of concerns (and because it's a more complex issue), the logic for the preestablished toppings 'tags' is moved to the below function.)
     populateToppings(e)
 }
@@ -127,7 +130,6 @@ const displayNewPizza = () => {
     document.querySelector("#initial-pizza-message-container").style.display = "none"
     document.querySelector("#pizza-new-wrapper").style.display = "inline" 
     document.querySelector("#delete-button").disabled = "true"
-
 }
 
 
