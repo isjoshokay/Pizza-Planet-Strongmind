@@ -13,15 +13,25 @@ I decided to name the company Pizza Planet :alien::pizza: similar to the one see
 
 To run this program locally, you need to first download the packages. You can do so in the console by typing `npm i.` You also need to create a `.env` file, which is included as one of the packages when you run `npm i` There are 3 variables from the `.env` that are used in the server but only 2 of them are required to run this. 
 
-- (Required) You need MongoDB to run the database. Create a variable in the `.env` called `MONGODB_URL` and save the url to that variable to connect.
+- (Required) You need MongoDB to run the database. **This is important:** In MongoDB Atlas, create a database inside your cluster called 'pizzaplanetsm'. In the downloaded project, Create a variable in the `.env` called `MONGODB_URL` and save the url to that variable to connect.
 https://www.mongodb.com/docs/atlas/create-connect-deployments/
 
-- (Required) You need a session secret for user authentication. You can of course set this to whatever you like. 
+- (Required) You need a session secret for user authentication.
 - (optional) You can provide a PORT variable, but the code is set to use port 3000 if no port is specified in the `.env`.
 
 The program is set up to run tests using the Jest framework. You can enter tests and run them in the respective files. (server.test.js and create.test.js). Run tests using `npm test`. There is also the Wallaby extension if you use VS code, which accompanies Jest for testing-as-you-code.
 
-Finally, run the software by typing `npm run dev`. This is setup using the nodemon package, so any changes you make and save will automatically reboot the server. You can also use `npm run prod` to run without nodemon if you're a true chad. 
+There is a variable you need to change in `server.js` called "sessionStore." You just need to change the `dbName` variable so that the value is `pizzaplanetsm`. The original value is for the deployed database.
+
+Finally, run the software by typing `npm run dev`. This is setup using the nodemon package, so any changes you make and save will automatically reboot the server. You can also use `npm run prod` to run without nodemon if you're a true chad.
+
+### User Roles
+
+There are two user roles: Chef and Owner. You will need to create a user for both roles, it is not built for the owner to access the ability to create pizzas. 
+
+A chef can see all of the pizzas, create them, edit them, and delete them.
+
+Creating an owner opens a field for the [Admin Key](#misc). More information on that below. The owner creates the toppings, which includes setting a name, a price, and a type. 
 
 ### Models and Attributes 
 [Back to top](#overview) 
