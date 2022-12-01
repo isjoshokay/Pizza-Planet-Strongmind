@@ -6,7 +6,7 @@ This describes how I solve the problem presented to me, essentially how I planne
 I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I thought of it as an interface for building a menu, such that customers would use this from a different view to order from inside or on the website. I used the MVC (Model-View-Controller) architecture to build this application. The front end was built using HTML, CSS, and Javascript. The backend was built with Node.js, Express as the server component and EJS as the view engine. MongoDB is used as the database. Mongoose is the library that connects to the MongoDB database.
 
 <p align="center">
-<img src="./Images/Pizza_Planet.webp">
+<img src="./ideation/ideation/Pizza_Planet.webp">
 </p>
 
 ### Downloading and Running Locally
@@ -58,7 +58,7 @@ The image fields for these data models are randomly selected. For toppings, they
 
 I wanted to align the design with what inspired it, so I am drawing inspiration from the Toy Story movie. I used the below image (and other screenshots from the movie(s) as references to complete the design:
 
-![Screenshot](./Images/Pizza_Planet_inside.webp) 
+![Screenshot](./ideation/ideation/Pizza_Planet_inside.webp) 
 
 Given the nature of the source material, The design is a lot more fun and less serious. It's a pizza-arcade kind of like Chuck E Cheese's (do those still exist?)
 
@@ -73,10 +73,10 @@ I mostly used these colors and slight variations where applicable.
 ### Typography 
 > Google Fonts that I am using:
 - Audiowide for header text:  
-![Screenshot](./Images/AudiowideFont.png) 
+![Screenshot](./ideation/ideation/AudiowideFont.png) 
 
 - Exo 2 (light 300) for body text and smaller headers:  
-![Screenshot](./Images/Exo2Font.png) 
+![Screenshot](./ideation/ideation/Exo2Font.png) 
 
 ### Views  
 > Login - The first page a user will see when trying to get into this system. If a user is not authenticated, they will be redirected here.
