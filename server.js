@@ -45,6 +45,7 @@ const MongoStore = require('connect-mongo')
 const ErrorMessage = require('./Errors')
 const sessionStore = MongoStore.create({
     mongoUrl: process.env.MONGODB_URL,
+    // dbName: 'pizzaplanetsm'
     dbName: 'pizzaplanet'
 })
 app.use(session({
