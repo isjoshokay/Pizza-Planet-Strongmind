@@ -1,7 +1,7 @@
 # Overview
 This describes how I solve the problem presented to me, essentially how I planned and journaled my thought process for building this project.  
 
-[Models and Attributes](#models-and-attributes) | [UI Design](#ui-design) 
+[Downloading and Running Locally](#downloading-and-running-locally) | [Models and Attributes](#models-and-attributes) | [UI Design](#ui-design) | [Misc](#misc)
 ### Summary
 I decided to name the company Pizza Planet :alien::pizza: similar to the one seen in Pixar's Toy Story. (I'm a Disney/Pixar fan). Based on the requirements of the project, I thought of it as an interface for building a menu, such that customers would use this from a different view to order from inside or on the website. I used the MVC (Model-View-Controller) architecture to build this application. The front end was built using HTML, CSS, and Javascript. The backend was built with Node.js, Express as the server component and EJS as the view engine. MongoDB is used as the database. Mongoose is the library that connects to the MongoDB database.
 
