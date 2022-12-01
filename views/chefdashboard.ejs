@@ -6,6 +6,13 @@
         <div style="text-align: center; width: 40%; margin: auto;">
             <h2 style="color: #13ab08; margin: 20px 40px;" >Welcome, Chef <%= user.fname %> <%= user.lname %></h2>
         </div>
+        <div id="pizza-view-header">
+            <button onclick="displayNewPizza()">Create Pizza</button>
+            <form action="/create/delete-pizza" id="pizza-header-form" method="POST">
+                <input type="hidden" name="id">
+                <button type="submit" id="delete-button" disabled>Delete Pizza</button>
+            </form>
+        </div>
         <div id="pizza-view-container">
             <div id="pizza-view-control">
                 <div id="pizza-list-wrapper">
@@ -106,12 +113,6 @@
                 </form>
             </div>
         </div>
-        <div id="pizza-view-header">
-            <button onclick="displayNewPizza()">Create Pizza</button>
-            <form action="/create/delete-pizza" id="pizza-header-form" method="POST">
-                <input type="hidden" name="id">
-                <button type="submit" id="delete-button" disabled>Delete Pizza</button>
-            </form>
-        </div>
+        
     </body>
 </html>

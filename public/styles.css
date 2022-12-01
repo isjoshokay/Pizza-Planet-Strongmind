@@ -293,7 +293,7 @@ div > input, select {
 }
 #pizza-view-header {
     width: 15%;
-    margin: 2% auto;
+    margin: 0 auto;
     height: 6rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -315,12 +315,12 @@ div > input, select {
     border-radius: 10px;
     padding: 5px;
     font-family: 'Exo 2', sans-serif;
-    height: 80%;
+    height: 60%;
 }
 #pizza-view-control {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 40em;
+    height: 80%;
 }
 #pizza-list-wrapper {
     width: 100%;
