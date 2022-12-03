@@ -1,5 +1,5 @@
 # Overview
-This describes how I solve the problem presented to me, essentially how I planned and journaled my thought process for building this project.  
+This describes how I solve the problem presented to me, essentially how I planned and journaled my thought process for building this project. You can view the live deployed version on https://pizzaplanet-sm.herokuapp.com.
 
 [Downloading and Running Locally](#downloading-and-running-locally) | [Models and Attributes](#models-and-attributes) | [UI Design](#ui-design) | [Misc](#misc)
 ### Summary
