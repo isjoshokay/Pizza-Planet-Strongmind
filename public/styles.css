@@ -293,7 +293,7 @@ div > input, select {
 }
 #pizza-view-header {
     width: 15%;
-    margin: 0 auto;
+    margin: auto;
     height: 6rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -301,26 +301,28 @@ div > input, select {
 
 #pizza-header-form>button, #pizza-view-header>button {
     background-color: #bc1a1f;
+    border: 1px solid #6d063f;
     font-family: 'Exo 2', sans-serif;
     color: white;
     border-radius: 5px;
     width: 100%;
-    height: 50%;
+    height: 30%;
+    margin: 3px;
 }
 
 #pizza-view-container {
-    width: 85%;
+    width: 85vw;
     margin: auto;
     background-color: rgba(98, 98, 165, 0.4);
     border-radius: 10px;
     padding: 5px;
     font-family: 'Exo 2', sans-serif;
-    height: 60%;
+    height: 65vh;
 }
 #pizza-view-control {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 80%;
+    height: 100%;
 }
 #pizza-list-wrapper {
     width: 100%;
@@ -343,6 +345,7 @@ div > input, select {
     border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: auto;
     width: 95%;
     max-height: 160px;
     background-color: #262751;
@@ -377,11 +380,12 @@ div > input, select {
 }
 #pizza-update-wrapper, #pizza-new-wrapper {
     width: 90%;
+    height: auto;
     background-color: rgba(5, 27, 105, 0.5);
     border-radius: 10px;
     padding: 10px;
     border: 2px solid #0f0d87;
-    margin: 5%;
+    margin: 3.2% 5%;
     background: linear-gradient(#6d063f,#1e1f4e);
     box-shadow: 0px 5px 5px #1e1f4e;
     font-size: .8em;
