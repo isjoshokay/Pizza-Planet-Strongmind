@@ -111,4 +111,4 @@ I mostly used these colors and slight variations where applicable.
 ### Misc
 [Back to top](#overview) 
 > Note there is an 'Admin Key' that pops up when trying to create a 'new user - owner.' This admin key is arbitrary and you can put in any input and it will work. Just a proof of concept. 
-> There are additional features scattered throughout the system. My favorite to work on was the logic for duplicate toppings in pizzas. But also, creating the 'are you sure' modals for deleting toppings was a clever touch in my book *pat pat*.  
+> There are additional features scattered throughout the system. My favorite to work on was the logic for duplicate toppings in pizzas. 
