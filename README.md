@@ -81,7 +81,7 @@ I mostly used these colors and slight variations where applicable.
 - #870d51
 - #bc1a1f (For a border gradient look and sprinkled in certain areas)
 - #13ab08 / #fff
-
+![Screenshot](./ideation/ideation/Pizza-Planet-img.png)
 
 ### Typography 
 > Google Fonts that I am using:
