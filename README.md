@@ -1,5 +1,5 @@
 # Overview
-This describes how I solve the problem presented to me, essentially how I planned and journaled my thought process for building this project. You can log in the live deployed version on https://pizzaplanet-sm.herokuapp.com using the below credentials:
+You can log in the live deployed version on https://pizzaplanet-sm.herokuapp.com using the below credentials:
 
 The username for a chef is `testchef` and the password is `pizzaplanet`
 The username for the owner is `testowner` and the password is `pizzaplanet`
