@@ -1,3 +1,5 @@
+
+![Screenshot](./ideation/ideation/PizzaPlanet_Master.png) 
 # Overview
 You can log in the live deployed version on https://pizzaplanet-sm.herokuapp.com using the below credentials:
 
